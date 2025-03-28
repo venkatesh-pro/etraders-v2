@@ -15,7 +15,7 @@ const Footer = () => {
         will be included in Modular Building Lease Agreement.
       </p>
 
-      <div className="grid my-[60px]  md:grid-cols-3">
+      <div className="grid mt-[60px] md:grid-cols-3">
         <div className="">
           <p className="text-[12px] text-[#949192] font-[400]">Lineup</p>
           <div className="mt-[15px] ">
@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex justify-between">
+      <div className="flex justify-between mt-[60px]">
         <p className="text-[12px] text-[#949192] font-[400]">
           Space © All Rights Reserved
         </p>
