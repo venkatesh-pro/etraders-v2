@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="px-[48px] py-[40px] text-white min-h-[385px] bg-black">
+    <div className="px-[20px] md:px-[48px] py-[40px] text-white min-h-[385px] bg-black">
       <p className="text-[#949192] text-[12px] font-[400]">
         1. These are estimated weekly payments if you participate in Space
         leasing. These estimates are subject to change and contingent on lease
@@ -15,7 +15,7 @@ const Footer = () => {
         will be included in Modular Building Lease Agreement.
       </p>
 
-      <div className="grid mt-[60px] md:grid-cols-3">
+      <div className="grid mt-[60px] md:grid-cols-3 gap-10">
         <div className="">
           <p className="text-[12px] text-[#949192] font-[400]">Lineup</p>
           <div className="mt-[15px] ">

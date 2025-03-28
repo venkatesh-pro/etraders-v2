@@ -11,12 +11,11 @@ const Navbar = () => {
     // Initially show the navbar (set to 0%)
     gsap.set("#homepage-navbar", { yPercent: 0 });
 
-    const showAnim = gsap
-      .to("#homepage-navbar", {
-        yPercent: -100, // This will be the hidden state
-        duration: 0.5,
-        paused: true,
-      });
+    const showAnim = gsap.to("#homepage-navbar", {
+      yPercent: -100, // This will be the hidden state
+      duration: 0.5,
+      paused: true,
+    });
 
     ScrollTrigger.create({
       start: "top top",
