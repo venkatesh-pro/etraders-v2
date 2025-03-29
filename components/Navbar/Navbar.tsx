@@ -96,7 +96,7 @@ const Navbar = () => {
         <div className="h-[100vh] w-full fixed text-white bg-[#000000]/30 z-[100] backdrop-blur-2xl top-[0px] ">
           <div
             onClick={() => setIsShowMobileMenu(!isShowMobileMenu)}
-            className="h-[42px] flex  flex-col items-end justify-center mx-[20px]"
+            className="h-[42px] flex  flex-col items-end justify-center mx-[20px] cursor-pointer"
           >
             <img src="/images/cancel-icon-navbar.svg" alt="Close Menu" className="" />
           </div>
