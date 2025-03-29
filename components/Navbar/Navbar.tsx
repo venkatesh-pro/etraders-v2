@@ -75,9 +75,9 @@ const Navbar = () => {
   useEffect(() => {
     if (mobileMenuTl.current) {
       if (isShowMobileMenu) {
-        mobileMenuTl.current.play();
+        mobileMenuTl.current.timeScale(1).play();
       } else {
-        mobileMenuTl.current.reverse();
+        mobileMenuTl.current.timeScale(2).reverse();
       }
     }
   }, [isShowMobileMenu]);
