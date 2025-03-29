@@ -60,42 +60,46 @@ const Navbar = () => {
 
   return (
     <>
-      <div
-        id="homepage-navbar"
-        className="w-full z-10 px-[20px] md:px-[30px] desktop:px-[48px] h-[42px] bg-[#000000]/30 flex justify-between items-center fixed top-[0px]"
-      >
-        <Link href="/">
-          <img src="/logo.svg" className="w-[70px] invert" alt="Logo" />
-        </Link>
-
-        <div className="hidden md:flex text-white">
-          <Link href={"/"}>SPACE ONE</Link>
-          <Link href={"/"} className="ml-[40px]">
-            SPACE LOUNGE
-          </Link>
-          <Link href={"/"} className="ml-[40px]">
-            SPACE LAUNDROMAT{" "}
-          </Link>
-        </div>
-        <div></div>
+      {!isShowMobileMenu && (
         <div
-          className="md:hidden cursor-pointer"
-          onClick={() => setIsShowMobileMenu(!isShowMobileMenu)}
+          id="homepage-navbar"
+          className="w-full z-10 px-[20px] md:px-[30px] desktop:px-[48px] h-[42px] bg-[#000000]/30 flex justify-between items-center fixed top-[0px]"
         >
-          {isShowMobileMenu ? (
-            <img src="/images/cancel-icon-navbar.svg" alt="Close Menu" />
-          ) : (
+          <Link href="/">
+            <img src="/logo.svg" className="w-[70px] invert" alt="Logo" />
+          </Link>
+
+          <div className="hidden md:flex text-white">
+            <Link href={"/"}>SPACE ONE</Link>
+            <Link href={"/"} className="ml-[40px]">
+              SPACE LOUNGE
+            </Link>
+            <Link href={"/"} className="ml-[40px]">
+              SPACE LAUNDROMAT{" "}
+            </Link>
+          </div>
+          <div></div>
+          <div
+            className="md:hidden cursor-pointer"
+            onClick={() => setIsShowMobileMenu(!isShowMobileMenu)}
+          >
             <img
               src="/images/hamburger.svg"
               className="w-[18px]"
               alt="Open Menu"
             />
-          )}
+          </div>
         </div>
-      </div>
+      )}
 
       {isShowMobileMenu && (
-        <div className="h-[calc(100vh-42px)] w-full fixed text-white bg-[#000000]/30 z-[100] backdrop-blur-2xl top-[42px] ">
+        <div className="h-[100vh] w-full fixed text-white bg-[#000000]/30 z-[100] backdrop-blur-2xl top-[0px] ">
+          <div
+            onClick={() => setIsShowMobileMenu(!isShowMobileMenu)}
+            className="h-[42px] flex  flex-col items-end justify-center mx-[20px]"
+          >
+            <img src="/images/cancel-icon-navbar.svg" alt="Close Menu" className="" />
+          </div>
           <div className="flex flex-col mx-[20px] mt-[101px]">
             <Link href={"/"} className="text-[26px] font-[400]">
               SPACE ONE
