@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Navbar = () => {
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
   const mobileMenuRef = useRef<gsap.core.Timeline | null>(null);
-  const mobileMenuTl = useRef(null);
+  const mobileMenuTl = useRef<gsap.core.Timeline | null>(null);
 
   useGSAP(() => {
     // Navbar scroll animation
