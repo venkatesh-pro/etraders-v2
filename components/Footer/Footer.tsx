@@ -43,18 +43,29 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex justify-between items-center mt-[60px]">
+      <div className="flex justify-between mobile380:items-center mt-[60px] mobile380:flex-row flex-col">
         <p className="text-[12px] text-[#949192] font-[400]">
           Space © All Rights Reserved
         </p>
-        <div className="flex items-center">
+        {/* for mobile */}
+        <Link
+          className="text-[12px] block text-[#949192] font-[400] mt-[10px] mobile380:hidden"
+          href={"/"}
+        >
+          Privacy Policy
+        </Link>
+        <Link
+          className="text-[12px] block text-[#949192] font-[400] mt-[10px] mobile380:hidden"
+          href={"/"}
+        >
+          Terms of Service
+        </Link>
+        {/* for desktop */}
+        <div className="hidden mobile380:block ">
           <Link className="text-[12px]  text-[#949192] font-[400]" href={"/"}>
             Privacy Policy
           </Link>
-          <Link
-            className="text-[12px] text-[#949192] font-[400] ml-[40px]"
-            href={"/"}
-          >
+          <Link className="text-[12px] text-[#949192] sm:ml-[40px] ml-[20px] font-[400] " href={"/"}>
             Terms of Service
           </Link>
         </div>

@@ -20,6 +20,7 @@ export default {
         desktopG: "1681px",
         custom927: "927px",
         custom1209: "1209px",
+        mobile380: "380px",
       },
 
       fontSize: {
