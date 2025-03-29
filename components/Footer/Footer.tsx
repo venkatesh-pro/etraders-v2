@@ -17,7 +17,7 @@ const Footer = () => {
 
       <div className="grid mt-[60px] md:grid-cols-3 gap-10">
         <div className="">
-          <p className="text-[12px] text-[#949192] font-[400]">Lineup</p>
+          <p className="text-[12px] text-[#949192] font-[400]">LINEUP</p>
           <div className="mt-[15px] ">
             <p className="text-[18px] font-[400]">Space One</p>
             <p className="text-[18px] mt-[10px] font-[400]">Space Lounge</p>
@@ -25,7 +25,7 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <p className="text-[12px] text-[#949192] font-[400]">Company</p>
+          <p className="text-[12px] text-[#949192] font-[400]">COMPANY</p>
           <div className="mt-[15px] ">
             <p className="text-[18px] font-[400]">About</p>
             <p className="text-[18px] mt-[10px] font-[400]">Careers</p>
@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <p className="text-[12px] text-[#949192] font-[400]">Connect</p>
+          <p className="text-[12px] text-[#949192] font-[400]">CONNECT</p>
           <div className="mt-[15px] ">
             <p className="text-[18px] font-[400]">Instagram</p>
             <p className="text-[18px] mt-[10px] font-[400]">YouTube</p>
@@ -43,13 +43,20 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex justify-between mt-[60px]">
+      <div className="flex justify-between items-center mt-[60px]">
         <p className="text-[12px] text-[#949192] font-[400]">
           Space © All Rights Reserved
         </p>
         <div>
-          <Link className="text-[12px] text-[#949192] font-[400]" href={"/"}>Privacy Policy</Link>
-          <Link className="text-[12px] text-[#949192] font-[400] ml-[40px]" href={"/"}>Terms of Service</Link>
+          <Link className="text-[12px] text-[#949192] font-[400]" href={"/"}>
+            Privacy Policy
+          </Link>
+          <Link
+            className="text-[12px] text-[#949192] font-[400] ml-[40px]"
+            href={"/"}
+          >
+            Terms of Service
+          </Link>
         </div>
       </div>
     </div>
