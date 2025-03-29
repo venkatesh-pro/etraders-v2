@@ -111,7 +111,7 @@ const Navbar = () => {
     <>
       <div
         id="homepage-navbar"
-        className="w-full z-10 px-[20px] md:px-[30px] desktop:px-[48px] h-[42px] bg-[#000000]/30 flex justify-between items-center fixed top-0"
+        className="w-full z-10 pl-[20px] md:px-[30px] desktop:px-[48px] h-[42px] bg-[#000000]/30 flex justify-between items-center fixed top-0"
       >
         <Link href="/" id="logo">
           <img src="/logo.svg" className="w-[70px] invert" alt="Logo" />
@@ -129,7 +129,7 @@ const Navbar = () => {
         <div></div>
         <div
           id="hamburger"
-          className="md:hidden cursor-pointer"
+          className="md:hidden cursor-pointer px-[20px] h-[42px] flex items-center  "
           onClick={() => setIsShowMobileMenu(!isShowMobileMenu)}
         >
           <img
@@ -145,11 +145,13 @@ const Navbar = () => {
         className={`w-full fixed text-white bg-[#000000]/30 z-[100] backdrop-blur-2xl top-0 opacity-0 overflow-hidden`}
         style={{ height: 0 }}
       >
-        <div
-          onClick={() => setIsShowMobileMenu(!isShowMobileMenu)}
-          className="h-[42px] flex flex-col items-end justify-center mx-[20px] cursor-pointer"
-        >
-          <img src="/images/cancel-icon-navbar.svg" alt="Close Menu" />
+        <div className=" flex justify-end">
+          <div
+            onClick={() => setIsShowMobileMenu(!isShowMobileMenu)}
+            className="px-[20px] h-[42px] inline-flex items-center justify-center cursor-pointer"
+          >
+            <img src="/images/cancel-icon-navbar.svg" alt="Close Menu" />
+          </div>
         </div>
         <div
           ref={mobileMenuLinksRef}
