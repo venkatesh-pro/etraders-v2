@@ -1,13 +1,14 @@
 "use client";
 import { useGSAP } from "@gsap/react";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
+  const mobileMenuRef = useRef(null);
 
   useGSAP(() => {
     gsap.set("#homepage-navbar", { yPercent: 0 });
@@ -29,7 +30,24 @@ const Navbar = () => {
         }
       },
     });
-  }, []);
+
+    if (mobileMenuRef.current) {
+      const tl = gsap.timeline();
+
+      tl.to(".isShowMobileMenu", {
+        height: "100%",
+        position: "fixed",
+        display: "block",
+        opacity: 1,
+        duration: 1,
+      });
+      if (isShowMobileMenu) {
+        tl.play();
+      } else {
+        tl.reverse();
+      }
+    }
+  }, [isShowMobileMenu]);
 
   // Prevent scrolling when mobile menu is open
   useEffect(() => {
@@ -92,27 +110,34 @@ const Navbar = () => {
         </div>
       )}
 
-      {isShowMobileMenu && (
-        <div className="h-[100vh] w-full fixed text-white bg-[#000000]/30 z-[100] backdrop-blur-2xl top-[0px] ">
-          <div
-            onClick={() => setIsShowMobileMenu(!isShowMobileMenu)}
-            className="h-[42px] flex  flex-col items-end justify-center mx-[20px] cursor-pointer"
-          >
-            <img src="/images/cancel-icon-navbar.svg" alt="Close Menu" className="" />
-          </div>
-          <div className="flex flex-col mx-[20px] mt-[101px]">
-            <Link href={"/"} className="text-[26px] font-[400]">
-              SPACE ONE
-            </Link>
-            <Link href={"/"} className="text-[26px] mt-[15px] font-[400]">
-              SPACE LOUNGE
-            </Link>
-            <Link href={"/"} className="text-[26px] mt-[15px] font-[400]">
-              SPACE LAUNDROMAT
-            </Link>
-          </div>
+      <div
+        ref={mobileMenuRef}
+        className={`h-[0vh] w-full fixed hidden text-white bg-[#000000]/30 z-[100] backdrop-blur-2xl top-[0px] opacity-0 ${
+          isShowMobileMenu && "isShowMobileMenu"
+        }`}
+      >
+        <div
+          onClick={() => setIsShowMobileMenu(!isShowMobileMenu)}
+          className="h-[42px] flex  flex-col items-end justify-center mx-[20px] cursor-pointer"
+        >
+          <img
+            src="/images/cancel-icon-navbar.svg"
+            alt="Close Menu"
+            className=""
+          />
         </div>
-      )}
+        <div className="flex flex-col mx-[20px] mt-[101px]">
+          <Link href={"/"} className="text-[26px] font-[400]">
+            SPACE ONE
+          </Link>
+          <Link href={"/"} className="text-[26px] mt-[15px] font-[400]">
+            SPACE LOUNGE
+          </Link>
+          <Link href={"/"} className="text-[26px] mt-[15px] font-[400]">
+            SPACE LAUNDROMAT
+          </Link>
+        </div>
+      </div>
     </>
   );
 };
