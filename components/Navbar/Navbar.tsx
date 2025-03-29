@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
-  const mobileMenuRef = useRef<gsap.core.Timeline | null>(null);
+  const mobileMenuRef = useRef<HTMLDivElement | null | null>(null);
   const mobileMenuTl = useRef<gsap.core.Timeline | null>(null);
 
   useGSAP(() => {
