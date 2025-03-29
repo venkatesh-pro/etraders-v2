@@ -69,12 +69,12 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex text-white">
-          <Link href={"/"}>Space One</Link>
+          <Link href={"/"}>SPACE ONE</Link>
           <Link href={"/"} className="ml-[40px]">
-            Space Lounge
+            SPACE LOUNGE
           </Link>
           <Link href={"/"} className="ml-[40px]">
-            Space Laundromat
+            SPACE LAUNDROMAT{" "}
           </Link>
         </div>
         <div></div>
@@ -98,13 +98,13 @@ const Navbar = () => {
         <div className="h-[calc(100vh-42px)] w-full fixed text-white bg-[#000000]/30 z-[100] backdrop-blur-2xl top-[42px] ">
           <div className="flex flex-col mx-[20px] mt-[101px]">
             <Link href={"/"} className="text-[26px] font-[400]">
-              Space One
+              SPACE ONE
             </Link>
             <Link href={"/"} className="text-[26px] mt-[15px] font-[400]">
-              Space Lounge
+              SPACE LOUNGE
             </Link>
             <Link href={"/"} className="text-[26px] mt-[15px] font-[400]">
-              Space Laundromat
+              SPACE LAUNDROMAT
             </Link>
           </div>
         </div>
