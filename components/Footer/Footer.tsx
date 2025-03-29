@@ -47,8 +47,8 @@ const Footer = () => {
         <p className="text-[12px] text-[#949192] font-[400]">
           Space © All Rights Reserved
         </p>
-        <div>
-          <Link className="text-[12px] text-[#949192] font-[400]" href={"/"}>
+        <div className="flex items-center">
+          <Link className="text-[12px]  text-[#949192] font-[400]" href={"/"}>
             Privacy Policy
           </Link>
           <Link
