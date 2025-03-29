@@ -9,6 +9,8 @@ gsap.registerPlugin(ScrollTrigger);
 const Navbar = () => {
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement | null | null>(null);
+  const mobileMenuLinksRef = useRef<HTMLDivElement | null | null>(null);
+
   const mobileMenuTl = useRef<gsap.core.Timeline | null>(null);
 
   useGSAP(() => {
@@ -50,6 +52,22 @@ const Navbar = () => {
         },
         "<"
       );
+      // Stagger animation for the menu links
+      if (mobileMenuLinksRef.current) {
+        mobileMenuTl.current.from(
+          mobileMenuLinksRef.current.children,
+          {
+            opacity: 0,
+            y: -20,
+            stagger: (index) => {
+              return index * 0.1;
+            },
+            duration: 0.3,
+            ease: "power1.out",
+          },
+          "-=0.1" // Overlap slightly with the menu opening
+        );
+      }
     }
   }, []);
 
@@ -133,7 +151,10 @@ const Navbar = () => {
         >
           <img src="/images/cancel-icon-navbar.svg" alt="Close Menu" />
         </div>
-        <div className="flex flex-col mx-[20px] mt-[101px]">
+        <div
+          ref={mobileMenuLinksRef}
+          className="flex flex-col mx-[20px] mt-[101px]"
+        >
           <Link href={"/"} className="text-[26px] font-[400]">
             SPACE ONE
           </Link>
