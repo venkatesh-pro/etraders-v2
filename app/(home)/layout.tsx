@@ -5,9 +5,25 @@ import "./home.css";
 import Script from "next/script";
 
 const geistSans = localFont({
-  src: "../fonts/Universal-Sans-Display-350.ttf",
+  src: [
+    {
+      path: "../fonts/Universal-Sans-Display-350.ttf",
+      weight: "350",
+    },
+    {
+      path: "../fonts/Universal-Sans-Display-400.ttf",
+      weight: "400",
+    },
+    {
+      path: "../fonts/Universal-Sans-Display-450.ttf",
+      weight: "450",
+    },
+    {
+      path: "../fonts/Universal-Sans-Display-500.ttf",
+      weight: "500",
+    },
+  ],
   variable: "--font-geist-sans",
-  weight: "100 900",
 });
 
 export const metadata: Metadata = {
