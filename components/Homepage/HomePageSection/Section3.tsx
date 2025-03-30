@@ -13,7 +13,7 @@ const Section3 = () => {
             Level up your wash game.{" "}
           </p>
           <div className="flex mt-[32px]">
-            <button className="rounded-[100px] px-[20px] py-[12px] bg-white text-black text-[14px] font-[400]">
+            <button className="rounded-[100px] min-w-[108px] max-w-[108px] min-h-[41px] max-h-[41px] bg-white text-black text-[14px] font-[400]">
               Learn More
             </button>
           </div>

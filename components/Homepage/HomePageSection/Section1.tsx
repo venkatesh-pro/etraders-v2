@@ -11,10 +11,10 @@ const Section1 = () => {
             From $59,990 or $395/wk for 12 mo.1
           </p>
           <div className="flex mt-[32px]">
-            <button className="rounded-[100px] px-[20px] py-[12px] bg-blue text-[14px] font-[400]">
+            <button className="rounded-[100px] min-w-[108px] max-w-[108px] bg-[#3788F7] text-[14px] font-[400] min-h-[41px] max-h-[41px] text-center">
               Order Now
             </button>
-            <button className="rounded-[100px] ml-[16px]  px-[20px] py-[12px] bg-white text-black text-[14px] font-[400]">
+            <button className="rounded-[100px] ml-[16px] min-w-[111px] max-w-[111px] px-[20px] bg-white text-black text-[14px] min-h-[41px] font-[400] max-h-[41px] text-center">
               Learn More
             </button>
           </div>
