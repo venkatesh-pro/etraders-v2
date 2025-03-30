@@ -9,8 +9,11 @@ const Section3 = () => {
           <h1 className="text-[56px] font-[400]">
             <span className="hidden md:inline">Space</span> Laundromat
           </h1>
-          <p className="text-[18px] font-[400] mt-[16px]">
-            Level up your wash game.{" "}
+          <p className="hidden md:block text-[18px] font-[400] mt-[16px]">
+            Level up your wash game.
+          </p>
+          <p className="block md:hidden text-[18px] font-[400] mt-[16px]">
+            Modular self-serve laundromat.
           </p>
           <div className="flex mt-[32px]">
             <button className="rounded-[100px] min-w-[108px] max-w-[108px] min-h-[41px] max-h-[41px] bg-white text-black text-[14px] font-[400]">
