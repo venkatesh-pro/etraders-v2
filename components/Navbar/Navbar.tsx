@@ -1,5 +1,4 @@
 "use client";
-import { useGSAP } from "@gsap/react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap/dist/gsap";
@@ -13,27 +12,27 @@ const Navbar = () => {
 
   const mobileMenuTl = useRef<gsap.core.Timeline | null>(null);
 
-  useGSAP(() => {
-    // Navbar scroll animation
-    gsap.set("#homepage-navbar", { yPercent: 0 });
-    const showAnim = gsap.to("#homepage-navbar", {
-      yPercent: -100,
-      duration: 0.5,
-      paused: true,
-    });
+  // useGSAP(() => {
+  //   // Navbar scroll animation
+  //   gsap.set("#homepage-navbar", { yPercent: 0 });
+  //   const showAnim = gsap.to("#homepage-navbar", {
+  //     yPercent: -100,
+  //     duration: 0.5,
+  //     paused: true,
+  //   });
 
-    ScrollTrigger.create({
-      start: "top top",
-      end: "100px top",
-      onUpdate: (self) => {
-        if (self.scroll() <= 10) {
-          showAnim.reverse();
-        } else {
-          showAnim.play();
-        }
-      },
-    });
-  }, []);
+  //   ScrollTrigger.create({
+  //     start: "top top",
+  //     end: "100px top",
+  //     onUpdate: (self) => {
+  //       if (self.scroll() <= 10) {
+  //         showAnim.reverse();
+  //       } else {
+  //         showAnim.play();
+  //       }
+  //     },
+  //   });
+  // }, []);
 
   // Initialize timeline only once
   useEffect(() => {
@@ -111,7 +110,7 @@ const Navbar = () => {
     <>
       <div
         id="homepage-navbar"
-        className="w-full z-10 pl-[20px] md:px-[30px] desktop:px-[48px] h-[42px] bg-[#000000]/30 flex justify-between items-center fixed top-0"
+        className="w-full backdrop-blur-2xl z-10 pl-[20px] md:px-[30px] desktop:px-[48px] h-[42px] bg-[#000000]/30 flex justify-between items-center fixed top-0"
       >
         <Link href="/" id="logo">
           <img src="/logo.svg" className="w-[70px] invert" alt="Logo" />

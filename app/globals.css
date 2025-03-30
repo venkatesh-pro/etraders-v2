@@ -61,6 +61,8 @@
   --silver: rgba(57, 60, 65, 1);
   --light-silver: rgba(92, 94, 98, 1);
   --blue: rgba(0, 113, 227, 1);
+
+  --letterSpacing1px:1px
 }
 
 /* for input fields component */

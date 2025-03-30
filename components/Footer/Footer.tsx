@@ -17,7 +17,7 @@ const Footer = () => {
 
       <div className="grid mt-[60px] md:grid-cols-3 gap-10">
         <div className="my-[30px]">
-          <p className="text-[12px] text-[#949192] font-[400] tracking-[2px]">
+          <p className="text-[12px] text-[#949192] font-[400] tracking-letterSpacing1px">
             LINEUP
           </p>
           <div className="mt-[15px] ">
@@ -27,7 +27,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="my-[30px]">
-          <p className="text-[12px] text-[#949192] font-[400] tracking-[2px]">
+          <p className="text-[12px] text-[#949192] font-[400] tracking-letterSpacing1px">
             COMPANY
           </p>
           <div className="mt-[15px] ">
@@ -38,7 +38,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="my-[30px]">
-          <p className="text-[12px] text-[#949192] font-[400] tracking-[2px]">
+          <p className="text-[12px] text-[#949192] font-[400] tracking-letterSpacing1px">
             CONNECT
           </p>
           <div className="mt-[15px] ">

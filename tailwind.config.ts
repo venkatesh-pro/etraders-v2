@@ -78,6 +78,9 @@ export default {
           b: "var(--divider-b)",
         },
       },
+      letterSpacing: {
+        letterSpacing1px: "var(--letterSpacing1px)",
+      },
     },
   },
   plugins: [],
