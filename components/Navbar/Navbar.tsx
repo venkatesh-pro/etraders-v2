@@ -110,7 +110,7 @@ const Navbar = () => {
     <>
       <div
         id="homepage-navbar"
-        className="w-full backdrop-blur-2xl z-10 pl-[20px] md:px-[30px] desktop:px-[48px] h-[42px] bg-[#000000]/30 flex justify-between items-center fixed top-0"
+        className="w-full backdrop-blur-2xl z-10 pl-[20px] md:px-[30px] desktop:px-[48px] h-[56px] bg-[#000000]/30 flex justify-between items-center fixed top-0"
       >
         <Link href="/" id="logo">
           <img src="/logo.svg" className="w-[70px] invert" alt="Logo" />
@@ -128,7 +128,7 @@ const Navbar = () => {
         <div></div>
         <div
           id="hamburger"
-          className="md:hidden cursor-pointer px-[20px] h-[42px] flex items-center  "
+          className="md:hidden cursor-pointer px-[20px] h-[56px] flex items-center  "
           onClick={() => setIsShowMobileMenu(!isShowMobileMenu)}
         >
           <img
@@ -147,7 +147,7 @@ const Navbar = () => {
         <div className=" flex justify-end">
           <div
             onClick={() => setIsShowMobileMenu(!isShowMobileMenu)}
-            className="px-[20px] h-[42px] inline-flex items-center justify-center cursor-pointer"
+            className="px-[20px] h-[56px] inline-flex items-center justify-center cursor-pointer"
           >
             <img src="/images/cancel-icon-navbar.svg" alt="Close Menu" />
           </div>
