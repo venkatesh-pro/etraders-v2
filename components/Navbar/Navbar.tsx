@@ -173,7 +173,7 @@ const Navbar = () => {
 
         <div
           ref={mobileMenuLinksRef}
-          className="flex flex-col mx-[20px] mt-[101px]"
+          className="flex flex-col mx-[20px] mt-[114px]"
         >
           {sections.map(({ id, label }) => (
             <p
