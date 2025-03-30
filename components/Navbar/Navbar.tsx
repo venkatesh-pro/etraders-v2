@@ -113,7 +113,7 @@ const Navbar = () => {
         className="w-full backdrop-blur-2xl z-10 pl-[20px] md:px-[30px] desktop:px-[48px] h-[56px] bg-[#000000]/30 flex justify-between items-center fixed top-0"
       >
         <Link href="/" id="logo">
-          <img src="/logo.svg" className="w-[70px] invert" alt="Logo" />
+          <img src="/logo.svg" className="w-[70.33px] invert h-[14px]" alt="Logo" />
         </Link>
 
         <div className="hidden md:flex text-white">
