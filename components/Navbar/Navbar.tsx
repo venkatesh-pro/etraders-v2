@@ -117,11 +117,11 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex text-white">
-          <Link href={"/"} className="text-[12px] font-[400]">SPACE ONE</Link>
-          <Link href={"/"} className="ml-[40px] text-[12px] font-[400]">
+          <Link href={"/"} className="text-[12px] font-[400] tracking-letterSpacing1px">SPACE ONE</Link>
+          <Link href={"/"} className="ml-[40px] text-[12px] font-[400] tracking-letterSpacing1px">
             SPACE LOUNGE
           </Link>
-          <Link href={"/"} className="ml-[40px] text-[12px] font-[400]">
+          <Link href={"/"} className="ml-[40px] text-[12px] font-[400] tracking-letterSpacing1px">
             SPACE LAUNDROMAT
           </Link>
         </div>
@@ -156,13 +156,13 @@ const Navbar = () => {
           ref={mobileMenuLinksRef}
           className="flex flex-col mx-[20px] mt-[101px]"
         >
-          <Link href={"/"} className="text-[26px] font-[400]">
+          <Link href={"/"} className="text-[26px] font-[400] tracking-letterSpacing1px">
             SPACE ONE
           </Link>
-          <Link href={"/"} className="text-[26px] mt-[15px] font-[400]">
+          <Link href={"/"} className="text-[26px] mt-[15px] font-[400] tracking-letterSpacing1px">
             SPACE LOUNGE
           </Link>
-          <Link href={"/"} className="text-[26px] mt-[15px] font-[400]">
+          <Link href={"/"} className="text-[26px] mt-[15px] font-[400] tracking-letterSpacing1px">
             SPACE LAUNDROMAT
           </Link>
         </div>
