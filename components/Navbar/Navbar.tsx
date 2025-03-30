@@ -29,7 +29,7 @@ const Navbar = () => {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.9 }
     );
 
     const sectionElements = sections.map(({ id }) =>
@@ -131,9 +131,10 @@ const Navbar = () => {
                   .getElementById(id)
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className={`ml-${
-                index === 0 ? "0" : "[40px]"
-              } text-[12px] font-[400] tracking-letterSpacing1px ${
+              style={{
+                marginLeft: index === 0 ? "0px" : "40px",
+              }}
+              className={`text-[12px] font-[400] tracking-letterSpacing1px ${
                 activeSection === id ? "text-white" : "text-[#E1E1E1]"
               }`}
             >
@@ -184,7 +185,7 @@ const Navbar = () => {
                   ?.scrollIntoView({ behavior: "smooth" });
                 setIsShowMobileMenu(false);
               }}
-              className={` text-[26px] mt-[15px] font-[400] tracking-letterSpacing1px ${
+              className={`cursor-pointer text-[26px] mt-[15px] font-[400] tracking-letterSpacing1px ${
                 activeSection === id ? "text-white" : "text-[#E1E1E1]"
               }`}
             >
