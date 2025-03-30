@@ -113,15 +113,30 @@ const Navbar = () => {
         className="w-full backdrop-blur-2xl z-10 pl-[20px] md:px-[30px] desktop:px-[48px] h-[56px] bg-[#000000]/30 flex justify-between items-center fixed top-0"
       >
         <Link href="/" id="logo">
-          <img src="/logo.svg" className="w-[70.33px] invert h-[14px]" alt="Logo" />
+          <img
+            src="/logo.svg"
+            className="w-[70.33px] invert h-[14px]"
+            alt="Logo"
+          />
         </Link>
 
         <div className="hidden md:flex text-white">
-          <Link href={"/"} className="text-[12px] font-[400] tracking-letterSpacing1px">SPACE ONE</Link>
-          <Link href={"/"} className="ml-[40px] text-[12px] font-[400] tracking-letterSpacing1px">
+          <Link
+            href={"#spaceone"}
+            className="text-[12px] font-[400] tracking-letterSpacing1px"
+          >
+            SPACE ONE
+          </Link>
+          <Link
+            href={"#lounge"}
+            className="ml-[40px] text-[12px] font-[400] tracking-letterSpacing1px"
+          >
             SPACE LOUNGE
           </Link>
-          <Link href={"/"} className="ml-[40px] text-[12px] font-[400] tracking-letterSpacing1px">
+          <Link
+            href={"#laundromat"}
+            className="ml-[40px] text-[12px] font-[400] tracking-letterSpacing1px"
+          >
             SPACE LAUNDROMAT
           </Link>
         </div>
@@ -156,13 +171,22 @@ const Navbar = () => {
           ref={mobileMenuLinksRef}
           className="flex flex-col mx-[20px] mt-[101px]"
         >
-          <Link href={"/"} className="text-[26px] font-[400] tracking-letterSpacing1px">
+          <Link
+            href={"/"}
+            className="text-[26px] font-[400] tracking-letterSpacing1px"
+          >
             SPACE ONE
           </Link>
-          <Link href={"/"} className="text-[26px] mt-[15px] font-[400] tracking-letterSpacing1px">
+          <Link
+            href={"/"}
+            className="text-[26px] mt-[15px] font-[400] tracking-letterSpacing1px"
+          >
             SPACE LOUNGE
           </Link>
-          <Link href={"/"} className="text-[26px] mt-[15px] font-[400] tracking-letterSpacing1px">
+          <Link
+            href={"/"}
+            className="text-[26px] mt-[15px] font-[400] tracking-letterSpacing1px"
+          >
             SPACE LAUNDROMAT
           </Link>
         </div>
