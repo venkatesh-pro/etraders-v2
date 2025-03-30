@@ -16,16 +16,20 @@ const Footer = () => {
       </p>
 
       <div className="grid mt-[60px] md:grid-cols-3 gap-10">
-        <div className="">
-          <p className="text-[12px] text-[#949192] font-[400]">LINEUP</p>
+        <div className="my-[30px]">
+          <p className="text-[12px] text-[#949192] font-[400] tracking-[12px]">
+            LINEUP
+          </p>
           <div className="mt-[15px] ">
             <p className="text-[18px] font-[400]">Space One</p>
             <p className="text-[18px] mt-[10px] font-[400]">Space Lounge</p>
             <p className="text-[18px] mt-[10px] font-[400]">Space Laundromat</p>
           </div>
         </div>
-        <div>
-          <p className="text-[12px] text-[#949192] font-[400]">COMPANY</p>
+        <div className="my-[30px]">
+          <p className="text-[12px] text-[#949192] font-[400] tracking-[12px]">
+            COMPANY
+          </p>
           <div className="mt-[15px] ">
             <p className="text-[18px] font-[400]">About</p>
             <p className="text-[18px] mt-[10px] font-[400]">Careers</p>
@@ -33,8 +37,10 @@ const Footer = () => {
             <p className="text-[18px] mt-[10px] font-[400]">Contact</p>
           </div>
         </div>
-        <div>
-          <p className="text-[12px] text-[#949192] font-[400]">CONNECT</p>
+        <div className="my-[30px]">
+          <p className="text-[12px] text-[#949192] font-[400] tracking-[12px]">
+            CONNECT
+          </p>
           <div className="mt-[15px] ">
             <p className="text-[18px] font-[400]">Instagram</p>
             <p className="text-[18px] mt-[10px] font-[400]">YouTube</p>
@@ -43,29 +49,32 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex justify-between mobile380:items-center mt-[60px] mobile380:flex-row flex-col">
-        <p className="text-[12px] text-[#949192] font-[400]">
-          Space © All Rights Reserved
-        </p>
+      <div className="mt-[40px] flex justify-between md:items-center md:flex-row flex-col">
         {/* for mobile */}
         <Link
-          className="text-[12px] block text-[#949192] font-[400] mt-[10px] mobile380:hidden"
+          className="text-[12px] block text-[#949192] font-[400] md:hidden"
           href={"/"}
         >
           Privacy Policy
         </Link>
         <Link
-          className="text-[12px] block text-[#949192] font-[400] mt-[10px] mobile380:hidden"
+          className="text-[12px] block text-[#949192] font-[400] mt-[8px] md:hidden"
           href={"/"}
         >
           Terms of Service
         </Link>
+        <p className="text-[12px] text-[#949192] mt-[8px] font-[400]">
+          Space © All Rights Reserved
+        </p>
         {/* for desktop */}
-        <div className="hidden mobile380:block ">
+        <div className="hidden md:block ">
           <Link className="text-[12px]  text-[#949192] font-[400]" href={"/"}>
             Privacy Policy
           </Link>
-          <Link className="text-[12px] text-[#949192] sm:ml-[40px] ml-[20px] font-[400] " href={"/"}>
+          <Link
+            className="text-[12px] text-[#949192] sm:ml-[40px] ml-[20px] font-[400] "
+            href={"/"}
+          >
             Terms of Service
           </Link>
         </div>
