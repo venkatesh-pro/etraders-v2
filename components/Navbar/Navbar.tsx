@@ -117,11 +117,11 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex text-white">
-          <Link href={"/"}>SPACE ONE</Link>
-          <Link href={"/"} className="ml-[40px]">
+          <Link href={"/"} className="text-[12px] font-[400]">SPACE ONE</Link>
+          <Link href={"/"} className="ml-[40px] text-[12px] font-[400]">
             SPACE LOUNGE
           </Link>
-          <Link href={"/"} className="ml-[40px]">
+          <Link href={"/"} className="ml-[40px] text-[12px] font-[400]">
             SPACE LAUNDROMAT
           </Link>
         </div>
