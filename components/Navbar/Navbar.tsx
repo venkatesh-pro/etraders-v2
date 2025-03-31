@@ -128,12 +128,16 @@ const Navbar = () => {
         id="homepage-navbar"
         className={`w-full  z-10 pl-[20px] md:px-[30px] desktop:px-[48px] h-[56px] transition-all duration-300 ${
           isScrolled ? "bg-[#000000]/30 backdrop-blur-2xl" : "bg-none"
-        }  flex justify-between items-center fixed top-0`}
+        }  flex md:justify-center justify-between items-center fixed `}
       >
-        <Link href="/" id="logo">
+        <Link
+          href="/"
+          id="logo"
+          className=""
+        >
           <img
             src="/logo.svg"
-            className="w-[70.33px] invert h-[14px]"
+            className="w-[70.33px] invert h-[14px] absolute top-[21px] left-[20px] md:left-[48px] absolute"
             alt="Logo"
           />
         </Link>
@@ -159,7 +163,7 @@ const Navbar = () => {
             </button>
           ))}
         </div>
-        <div></div>
+        {/* <div></div> */}
         {/* Mobile Menu Toggle */}
         <div
           id="hamburger"
