@@ -134,7 +134,7 @@ const Navbar = () => {
               style={{
                 marginLeft: index === 0 ? "0px" : "40px",
               }}
-              className={`text-[12px] font-[400] transition-colors duration-500 tracking-letterSpacing1px ${
+              className={`text-[12px] font-[400] transition-colors duration-300 tracking-letterSpacing1px hover:text-white ${
                 activeSection === id ? "text-white" : "text-[#E1E1E1]"
               }`}
             >
@@ -185,7 +185,7 @@ const Navbar = () => {
                   ?.scrollIntoView({ behavior: "smooth" });
                 setIsShowMobileMenu(false);
               }}
-              className={`cursor-pointer text-[26px] mt-[15px] font-[400] tracking-letterSpacing1px ${
+              className={`cursor-pointer text-[26px] mt-[15px] font-[400] tracking-letterSpacing1px transition-colors duration-300  hover:text-white ${
                 activeSection === id ? "text-white" : "text-[#E1E1E1]"
               }`}
             >
