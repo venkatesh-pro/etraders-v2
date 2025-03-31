@@ -8,7 +8,7 @@ const Section4 = () => {
         <div className="text-white mx-[20px] md:mx-[48px] w-full flex md:block items-center flex-col pt-[144px] md:pt-0">
           <h1 className="text-[56px] font-[400]">Careers</h1>
           <p className="text-[18px] font-[400] mt-[16px]">
-            Discover open roles at Space.
+            Discover open roles.
           </p>
           <div className="flex mt-[32px]">
             <button className="rounded-[100px] min-w-[152px] max-w-[152px] min-h-[41px] max-h-[41px] bg-white text-black text-[14px] font-[400]">
