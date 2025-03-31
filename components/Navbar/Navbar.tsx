@@ -29,7 +29,7 @@ const Navbar = () => {
           }
         });
       },
-      { threshold: 0.9 }
+      { threshold: 0.7 }
     );
 
     const sectionElements = sections.map(({ id }) =>
@@ -134,7 +134,7 @@ const Navbar = () => {
               style={{
                 marginLeft: index === 0 ? "0px" : "40px",
               }}
-              className={`text-[12px] font-[400] tracking-letterSpacing1px ${
+              className={`text-[12px] font-[400] transition-colors duration-500 tracking-letterSpacing1px ${
                 activeSection === id ? "text-white" : "text-[#E1E1E1]"
               }`}
             >
