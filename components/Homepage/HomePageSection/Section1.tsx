@@ -4,7 +4,7 @@ import React from "react";
 const Section1 = () => {
   return (
     <div id="spaceone">
-      <div className="min-h-[100vh] w-full desktop:min-h-[1024px] bg-[url('/homepageImages/section-1.1.jpg')]  bg-cover bg-center flex md:items-center">
+      <div className="min-h-[100vh] w-full desktop:min-h-[1024px] bg-[url('/homepageImages/section-1.png')]  bg-cover bg-center flex md:items-center">
         <div className="text-white mx-[20px] md:mx-[48px] w-full flex md:block items-center flex-col pt-[144px] md:pt-0">
           <h1 className="text-[56px] font-[400]">Space One</h1>
           <p className=" font-[400] mt-[16px]">

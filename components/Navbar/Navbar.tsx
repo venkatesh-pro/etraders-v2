@@ -14,6 +14,7 @@ const sections = [
 const Navbar = () => {
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
   const mobileMenuLinksRef = useRef<HTMLDivElement | null>(null);
@@ -107,11 +108,27 @@ const Navbar = () => {
     };
   }, []);
 
+  // Scroll listener to toggle background
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        // Trigger after scrolling 10px
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <>
       <div
         id="homepage-navbar"
-        className="w-full backdrop-blur-2xl z-10 pl-[20px] md:px-[30px] desktop:px-[48px] h-[56px] bg-[#000000]/30 flex justify-between items-center fixed top-0"
+        className={`w-full  z-10 pl-[20px] md:px-[30px] desktop:px-[48px] h-[56px] transition-all duration-300 ${
+          isScrolled ? "bg-[#000000]/30 backdrop-blur-2xl" : "bg-none"
+        }  flex justify-between items-center fixed top-0`}
       >
         <Link href="/" id="logo">
           <img
