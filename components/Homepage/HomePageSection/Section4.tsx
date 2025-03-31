@@ -5,7 +5,7 @@ const Section4 = () => {
   return (
     <div id="section1">
       <div className="min-h-[100vh] w-full desktop:min-h-[1024px] bg-[url('/homepageImages/section-4.png')]  bg-cover bg-center flex md:items-center">
-        <div className="text-white mx-[20px] md:mx-[48px] w-full flex md:block items-center flex-col pt-[144px] md:pt-0">
+        <div className="text-white mx-[20px] md:mx-[48px] w-full flex md:block items-center flex-col pt-[96px] md:pt-0">
           <h1 className="text-[40px] font-[400]">Careers</h1>
           <p className="text-[18px] font-[400] mt-[16px]">
             Discover open roles.

@@ -5,7 +5,7 @@ const Section2 = () => {
   return (
     <div id="lounge">
       <div className="min-h-[100vh] w-full desktop:min-h-[1024px] bg-[url('/homepageImages/section-2.png')]  bg-cover bg-center flex md:items-center">
-        <div className="text-white mx-[20px] md:mx-[48px] w-full flex md:block items-center flex-col pt-[144px] md:pt-0">
+        <div className="text-white mx-[20px] md:mx-[48px] w-full flex md:block items-center flex-col pt-[96px] md:pt-0">
           <h1 className="text-[40px] font-[400]">
             <span className="hidden md:inline">Space</span> Lounge
           </h1>
