@@ -6,7 +6,7 @@ const Section3 = () => {
     <div id="laundromat">
       <div className="min-h-[100vh] w-full desktop:min-h-[1024px] bg-[url('/homepageImages/section-3.png')]  bg-cover bg-center flex md:items-center">
         <div className="text-white mx-[20px] md:mx-[48px] w-full flex md:block items-center flex-col pt-[144px] md:pt-0">
-          <h1 className="text-[56px] font-[400]">
+          <h1 className="text-[40px] font-[400]">
             <span className="hidden md:inline">Space</span> Laundromat
           </h1>
           <p className="text-[18px] font-[400] mt-[16px]">
