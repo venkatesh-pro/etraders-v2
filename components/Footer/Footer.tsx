@@ -21,9 +21,9 @@ const Footer = () => {
             LINEUP
           </p>
           <div className="mt-[15px] ">
-            <p className="text-[18px] font-[400]">Space One</p>
-            <p className="text-[18px] mt-[10px] font-[400]">Space Lounge</p>
-            <p className="text-[18px] mt-[10px] font-[400]">Space Laundromat</p>
+            <p className="text-[18px] font-[400] hover:opacity-[90%] transition-opacity duration-300 cursor-pointer">Space One</p>
+            <p className="text-[18px] mt-[10px] font-[400] hover:opacity-[90%] transition-opacity duration-300 cursor-pointer">Space Lounge</p>
+            <p className="text-[18px] mt-[10px] font-[400] hover:opacity-[90%] transition-opacity duration-300 cursor-pointer">Space Laundromat</p>
           </div>
         </div>
         <div className="my-[30px]">
@@ -31,10 +31,10 @@ const Footer = () => {
             COMPANY
           </p>
           <div className="mt-[15px] ">
-            <p className="text-[18px] font-[400]">About</p>
-            <p className="text-[18px] mt-[10px] font-[400]">Careers</p>
-            <p className="text-[18px] mt-[10px] font-[400]">Newsroom</p>
-            <p className="text-[18px] mt-[10px] font-[400]">Contact</p>
+            <p className="text-[18px] font-[400] hover:opacity-[90%] transition-opacity duration-300 cursor-pointer">About</p>
+            <p className="text-[18px] mt-[10px] font-[400] hover:opacity-[90%] transition-opacity duration-300 cursor-pointer">Careers</p>
+            <p className="text-[18px] mt-[10px] font-[400] hover:opacity-[90%] transition-opacity duration-300 cursor-pointer">Newsroom</p>
+            <p className="text-[18px] mt-[10px] font-[400] hover:opacity-[90%] transition-opacity duration-300 cursor-pointer">Contact</p>
           </div>
         </div>
         <div className="my-[30px]">
@@ -42,9 +42,9 @@ const Footer = () => {
             CONNECT
           </p>
           <div className="mt-[15px] ">
-            <p className="text-[18px] font-[400]">Instagram</p>
-            <p className="text-[18px] mt-[10px] font-[400]">YouTube</p>
-            <p className="text-[18px] mt-[10px] font-[400]">X</p>
+            <p className="text-[18px] font-[400] hover:opacity-[90%] transition-opacity duration-300 cursor-pointer">Instagram</p>
+            <p className="text-[18px] mt-[10px] font-[400] hover:opacity-[90%] transition-opacity duration-300 cursor-pointer">YouTube</p>
+            <p className="text-[18px] mt-[10px] font-[400] hover:opacity-[90%] transition-opacity duration-300 cursor-pointer">X</p>
           </div>
         </div>
       </div>
