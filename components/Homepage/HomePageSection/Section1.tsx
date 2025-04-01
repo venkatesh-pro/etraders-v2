@@ -17,21 +17,25 @@ const Section1 = () => {
           `,
         }}
       >
-        {" "}
-        <div className="text-white mx-[20px] md:mx-[48px] w-full flex  items-center flex-col pt-[100px] md:pt-[120px]">
-          <h1 className="md:text-[48px] text-[40px] font-[400]">Space One</h1>
-          <p className=" font-[400] mt-[16px]">
-            <span className="text-[18px]">
-              From $59,990 or $395/wk for 12 mo.
-            </span>
-            <sup className="text-[12px]">1</sup>
-          </p>
+        <div className="text-white mx-[20px] md:mx-[48px] w-full flex  items-center md:justify-start justify-between flex-col pt-[100px] pb-[100px] md:pt-[120px] md:pb-0">
+          <div className="flex  items-center flex-col">
+            <h1 className="md:text-[48px] text-[40px] font-[400]">Space One</h1>
+            <p className=" font-[400] mt-[16px]">
+              <span className="text-[18px]">
+                From $59,990 or $395/wk for 12 mo.
+              </span>
+              <sup className="text-[12px]">1</sup>
+            </p>
+          </div>
           <div className="flex mt-[32px]">
             <button className="rounded-[100px] min-w-[110px] max-w-[110px] bg-[#3788F7] text-[14px] font-[400] min-h-[41px] max-h-[41px] text-center hover:opacity-[90%] transition-opacity duration-300 tracking-[.5px]">
               Order Now
             </button>
-            <button className="rounded-[100px] ml-[16px] min-w-[114px] max-w-[114px] bg-white text-black text-[14px] min-h-[41px] font-[400] max-h-[41px] text-center hover:opacity-[90%] transition-opacity duration-300 tracking-[.5px]">
+            <button className="hidden md:block rounded-[100px] ml-[16px] min-w-[114px] max-w-[114px] bg-white text-black text-[14px] min-h-[41px] font-[400] max-h-[41px] text-center hover:opacity-[90%] transition-opacity duration-300 tracking-[.5px]">
               Learn More
+            </button>
+            <button className="block md:hidden  rounded-[100px] ml-[16px] min-w-[114px] max-w-[114px] bg-white text-black text-[14px] min-h-[41px] font-[400] max-h-[41px] text-center hover:opacity-[90%] transition-opacity duration-300 tracking-[.5px]">
+              Compare
             </button>
           </div>
         </div>
