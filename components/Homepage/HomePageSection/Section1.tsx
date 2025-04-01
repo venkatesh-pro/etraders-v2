@@ -17,7 +17,7 @@ const Section1 = () => {
           `,
         }}
       >
-        <div className="text-white mx-[20px] md:mx-[48px] w-full flex  items-center md:justify-start justify-between flex-col pt-[100px] pb-[100px] md:pt-[120px] md:pb-0">
+        <div className="text-white mx-[20px] md:mx-[48px] w-full flex  items-center flex-col pt-[100px] pb-[100px] md:pt-[120px] md:pb-0">
           <div className="flex  items-center flex-col">
             <h1 className="md:text-[48px] text-[40px] font-[400]">Space One</h1>
             <p className="font-[400] mt-[8px]">
