@@ -19,7 +19,7 @@ const Section1 = () => {
       >
         {" "}
         <div className="text-white mx-[20px] md:mx-[48px] w-full flex  items-center flex-col pt-[100px] md:pt-[120px]">
-          <h1 className="text-[40px] font-[400]">Space One</h1>
+          <h1 className="md:text-[48px] text-[40px] font-[400]">Space One</h1>
           <p className=" font-[400] mt-[16px]">
             <span className="text-[18px]">
               From $59,990 or $395/wk for 12 mo.
