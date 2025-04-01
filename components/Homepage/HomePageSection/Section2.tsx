@@ -25,7 +25,7 @@ const Section2 = () => {
             Reimagining the charging experience.{" "}
           </p>
           <div className="flex mt-[32px]">
-            <button className="hover:opacity-[90%] transition-opacity duration-300 rounded-[100px] min-w-[108px] max-w-[108px] bg-white text-black text-[14px] font-[400] min-h-[41px] max-h-[41px] tracking-[.5px]">
+            <button className="hover:opacity-[90%] transition-opacity duration-300 rounded-[100px] min-w-[114px] max-w-[114px] bg-white text-black text-[14px] font-[400] min-h-[41px] max-h-[41px] tracking-[.5px]">
               Learn More
             </button>
           </div>

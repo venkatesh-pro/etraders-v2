@@ -27,10 +27,10 @@ const Section1 = () => {
             <sup className="text-[12px]">1</sup>
           </p>
           <div className="flex mt-[32px]">
-            <button className="rounded-[100px] min-w-[108px] max-w-[108px] bg-[#3788F7] text-[14px] font-[400] min-h-[41px] max-h-[41px] text-center hover:opacity-[90%] transition-opacity duration-300 tracking-[.5px]">
+            <button className="rounded-[100px] min-w-[110px] max-w-[110px] bg-[#3788F7] text-[14px] font-[400] min-h-[41px] max-h-[41px] text-center hover:opacity-[90%] transition-opacity duration-300 tracking-[.5px]">
               Order Now
             </button>
-            <button className="rounded-[100px] ml-[16px] min-w-[111px] max-w-[111px] px-[20px] bg-white text-black text-[14px] min-h-[41px] font-[400] max-h-[41px] text-center hover:opacity-[90%] transition-opacity duration-300 tracking-[.5px]">
+            <button className="rounded-[100px] ml-[16px] min-w-[114px] max-w-[114px] bg-white text-black text-[14px] min-h-[41px] font-[400] max-h-[41px] text-center hover:opacity-[90%] transition-opacity duration-300 tracking-[.5px]">
               Learn More
             </button>
           </div>

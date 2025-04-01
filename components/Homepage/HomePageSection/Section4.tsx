@@ -22,7 +22,7 @@ const Section4 = () => {
             Discover open roles.
           </p>
           <div className="flex mt-[32px]">
-            <button className="hover:opacity-[90%] transition-opacity duration-300 rounded-[100px] min-w-[152px] max-w-[152px] min-h-[41px] max-h-[41px] bg-white text-black text-[14px] font-[400] tracking-[.5px]">
+            <button className="hover:opacity-[90%] transition-opacity duration-300 rounded-[100px] min-w-[155px] max-w-[155px] min-h-[41px] max-h-[41px] bg-white text-black text-[14px] font-[400] tracking-[.5px]">
               See Opportunities
             </button>
           </div>
