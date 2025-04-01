@@ -5,7 +5,7 @@ const Section2 = () => {
   return (
     <div id="lounge">
       <div
-        className="min-h-[100vh] w-full desktop:min-h-[1024px] bg-cover bg-center flex "
+        className="h-[calc(100vh-56px)] sm:min-h-[100vh] w-full desktop:min-h-[1024px] bg-cover bg-center flex "
         style={{
           backgroundImage: `
           linear-gradient(
