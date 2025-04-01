@@ -22,11 +22,11 @@ const Section3 = () => {
             <h1 className="md:text-[48px] text-[40px] font-[400]">
               <span className="hidden md:inline">Space</span> Laundromat
             </h1>
-            <p className="text-[18px] font-[400] mt-[16px]">
+            <p className="text-[18px] font-[400] mt-[8px]">
               Simplifying the way we do laundry.
             </p>
           </div>
-          <div className="flex mt-[32px]">
+          <div className="flex mt-[24px]">
             <button className="hover:opacity-[90%] transition-opacity duration-300 rounded-[100px] min-w-[114px] max-w-[114px] min-h-[41px] max-h-[41px] bg-white text-black text-[14px] font-[400] tracking-[.5px]">
               Learn More
             </button>
