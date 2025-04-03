@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import Configurator from "./Configurator";
 import { ConfiguratorData } from "@/data";
 import { TabState } from "./ConfiguratorParent";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap/dist/gsap";
 
 interface ConfiguratorTabsProps {
   activeTab: TabState;
@@ -84,9 +86,29 @@ const ConfiguratorTabsParent: React.FC<ConfiguratorTabsParentProps> = ({
   setIsModalOpenCarousel,
   totalPrice,
 }) => {
+  const configuratorRef = useRef<HTMLDivElement>(null);
+
   const handleActiveTab = (state: TabState) => {
     setActiveTab(state);
   };
+
+  useGSAP(() => {
+    if (configuratorRef.current) {
+      // Fade out, then fade in
+      gsap
+        .timeline()
+        .to(configuratorRef.current, {
+          opacity: 0.2,
+          duration: 0.3,
+          ease: "power2.inOut",
+        })
+        .to(configuratorRef.current, {
+          opacity: 1,
+          duration: 0.3,
+          ease: "power2.inOut",
+        });
+    }
+  }, [activeTab]); // Trigger animation when activeTab changes
   return (
     <div>
       <span className="text-dark-red text-[17px]">New</span>
@@ -108,22 +130,23 @@ const ConfiguratorTabsParent: React.FC<ConfiguratorTabsParentProps> = ({
           handleActiveTab={handleActiveTab}
         />
       </div>
-
-      <Configurator
-        activeTab={activeTab}
-        currentModel={currentModel}
-        isMirrored={isMirrored}
-        configuratorData={configuratorData}
-        setConfiguratorData={setConfiguratorData}
-        setSliderImages={setSliderImages}
-        setIsImageChangeScroll={setIsImageChangeScroll}
-        generateSliderImagesForInterior={generateSliderImagesForInterior}
-        generateSolarImages={generateSolarImages}
-        generateEssentialImages={generateEssentialImages}
-        setIsModalOpen={setIsModalOpen}
-        setIsModalOpenCarousel={setIsModalOpenCarousel}
-        totalPrice={totalPrice}
-      />
+      <div ref={configuratorRef}>
+        <Configurator
+          activeTab={activeTab}
+          currentModel={currentModel}
+          isMirrored={isMirrored}
+          configuratorData={configuratorData}
+          setConfiguratorData={setConfiguratorData}
+          setSliderImages={setSliderImages}
+          setIsImageChangeScroll={setIsImageChangeScroll}
+          generateSliderImagesForInterior={generateSliderImagesForInterior}
+          generateSolarImages={generateSolarImages}
+          generateEssentialImages={generateEssentialImages}
+          setIsModalOpen={setIsModalOpen}
+          setIsModalOpenCarousel={setIsModalOpenCarousel}
+          totalPrice={totalPrice}
+        />
+      </div>
     </div>
   );
 };
