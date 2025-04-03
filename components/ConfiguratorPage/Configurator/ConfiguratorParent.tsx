@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import Configurator from "./Configurator";
 import { ConfiguratorData, data } from "@/data";
 import Slider from "../Slider/Slider";
 // import usePreloadImages from "@/hooks/usePreloadImages";
@@ -11,10 +10,13 @@ import FeatureModalCarousel from "../Modal/FeatureModalCarousel";
 import ConfiguratorNavbar from "@/components/Navbar/ConfiguratorNavbar";
 import ScrollPricing from "@/components/ScrollPricing/ScrollPricing";
 import { calculateTotalPrice } from "@/utils/functions";
+import ConfiguratorTabsParent from "./ConfiguratorTabsParent";
 
 type Model = { name: string };
 type Color = { name: string; imageFolderName: string };
 type Orientation = { name: string };
+
+export type TabState = "cash" | "lease";
 
 const ConfiguratorParent = () => {
   const [configuratorData, setConfiguratorData] =
@@ -27,6 +29,7 @@ const ConfiguratorParent = () => {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   // const [navbarHeight] = useState(42);
+  const [activeTab, setActiveTab] = useState<TabState>("cash");
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenCarousel, setIsModalOpenCarousel] = useState(false);
@@ -247,7 +250,17 @@ const ConfiguratorParent = () => {
     );
     if (selectedModel) setCurrentModel(selectedModel.name);
 
-    const selectedColor = configuratorData.chooseYourFinish.find(
+    console.log(
+      "configuratorData.chooseYourFinish[activeTab]",
+      configuratorData.chooseYourFinish[activeTab]
+    );
+    console.log(
+      "configuratorData.chooseYourFinish",
+      configuratorData.chooseYourFinish
+    );
+    console.log("[activeTab]", activeTab);
+
+    const selectedColor = configuratorData.chooseYourFinish[activeTab]?.find(
       (d) => d.isSelected
     );
     const selectedOrientation = configuratorData.chooseYourOrientation.find(
@@ -354,9 +367,9 @@ const ConfiguratorParent = () => {
 
   // Calculate total price
   useEffect(() => {
-    const totalPrice = calculateTotalPrice(configuratorData);
+    const totalPrice = calculateTotalPrice(configuratorData, activeTab);
     setTotalPrice(totalPrice);
-  }, [configuratorData]);
+  }, [configuratorData, activeTab]);
 
   return (
     <>
@@ -394,7 +407,9 @@ const ConfiguratorParent = () => {
             // style={!isMobile ? { paddingTop: `11${navbarHeight}px` } : {}}
           >
             <div className="px-[28px] desktop:px-[48px] desktopG:px-[48px] ">
-              <Configurator
+              <ConfiguratorTabsParent
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
                 currentModel={currentModel}
                 isMirrored={isMirrored}
                 configuratorData={configuratorData}

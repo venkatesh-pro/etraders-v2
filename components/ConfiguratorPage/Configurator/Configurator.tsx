@@ -10,12 +10,14 @@ import { useGSAP } from "@gsap/react";
 import InputField from "@/components/InputField/InputField";
 import { useForm } from "react-hook-form";
 import LoadingSpinner from "@/components/LoadingSpinner/LoadingSpinner";
+import { TabState } from "./ConfiguratorParent";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(useGSAP);
 }
 
 interface ConfiguratorProps {
+  activeTab: TabState;
   currentModel: string;
   isMirrored: boolean;
   configuratorData: ConfiguratorData;
@@ -31,6 +33,7 @@ interface ConfiguratorProps {
 }
 
 const Configurator: React.FC<ConfiguratorProps> = ({
+  activeTab,
   currentModel,
   isMirrored,
   configuratorData,
@@ -452,19 +455,8 @@ const Configurator: React.FC<ConfiguratorProps> = ({
     <>
       {/* section 1 */}
       <section className="section section1 " id="section1">
-        <span className="text-dark-red text-[17px]">New</span>
-        <h1 className="text-mobile-header-lg font-[450] leading-[50px] mt-[10px]">
-          Customize your Space One
-        </h1>
-        <p className="text-desktop-body-xl font-[450] mt-[30px]">
-          <span>Make it yours.</span>
-          <span className="text-light-silver">
-            {" "}
-            Configure your exterior and interior layout.
-          </span>
-        </p>
         <div>
-          <p className="text-[18px] font-[400] text-silver mt-[20px]">
+          <p className="text-[18px] font-[400] text-silver mt-[30px]">
             Available now in the following states:
           </p>
 
@@ -517,10 +509,20 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   </p>
                 </div>
                 <div>
-                  {d.price > 0 && (
+                  {activeTab === "cash" ? (
+                    d.price > 0 && (
+                      <p className="">
+                        <span className="text-[14px] text-silver font-[400]">
+                          {d.price > 0 && formatNumberToCurrency(d.price)}
+                        </span>
+                      </p>
+                    )
+                  ) : (
                     <p className="">
                       <span className="text-[14px] text-silver font-[400]">
-                        {d.price > 0 && formatNumberToCurrency(d.price)}
+                        {d.lease.weekly.price > 0 &&
+                          formatNumberToCurrency(d.lease.weekly.price)}
+                        /wk
                       </span>
                     </p>
                   )}
@@ -609,23 +611,40 @@ const Configurator: React.FC<ConfiguratorProps> = ({
           Base Color
         </p>
         <div>
-          {configuratorData.chooseYourFinish.map((d, i) => {
-            return (
-              d.isSelected && (
-                <p
-                  className="mt-[10px] font-[450] text-[24px] capitalize"
-                  key={i}
-                >
-                  {d.name.charAt(0).toUpperCase() +
-                    d.name.slice(1).toLowerCase()}
-                </p>
-              )
-            );
-          })}
+          {activeTab === "cash"
+            ? configuratorData?.chooseYourFinish?.cash?.map((d, i) => {
+                return (
+                  d.isSelected && (
+                    <p
+                      className="mt-[10px] font-[450] text-[24px] capitalize"
+                      key={i}
+                    >
+                      {d.name.charAt(0).toUpperCase() +
+                        d.name.slice(1).toLowerCase()}
+                    </p>
+                  )
+                );
+              })
+            : configuratorData?.chooseYourFinish?.lease?.map((d, i) => {
+                return (
+                  d.isSelected && (
+                    <p
+                      className="mt-[10px] font-[450] text-[24px] capitalize"
+                      key={i}
+                    >
+                      {d.name.charAt(0).toUpperCase() +
+                        d.name.slice(1).toLowerCase()}
+                    </p>
+                  )
+                );
+              })}
         </div>
         <p className="text-[17px] text-silver mt-[10px] font-[450]">Included</p>
         <div className={`flex max-w-[290px] mt-[20px]`}>
-          {configuratorData.chooseYourFinish.map((d, i) => {
+          {(activeTab === "cash"
+            ? configuratorData.chooseYourFinish.cash
+            : configuratorData.chooseYourFinish.lease
+          )?.map((d, i) => {
             return (
               <div
                 key={i}
@@ -635,14 +654,17 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                 onClick={() => {
                   const updatedData: ConfiguratorData = {
                     ...configuratorData,
-                    chooseYourFinish: configuratorData.chooseYourFinish.map(
-                      (model) =>
-                        model.name === d.name
-                          ? { ...model, isSelected: true }
-                          : { ...model, isSelected: false }
-                    ),
+                    chooseYourFinish: {
+                      ...configuratorData.chooseYourFinish,
+                      [activeTab]: configuratorData.chooseYourFinish[
+                        activeTab
+                      ].map((model) => ({
+                        ...model,
+                        isSelected: model.name === d.name,
+                      })),
+                    },
                   };
-
+                  console.log("updatedData", updatedData);
                   setConfiguratorData(updatedData);
                 }}
               >
@@ -742,56 +764,65 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         </div> */}
 
         {/* glass */}
-        <p className="text-desktop-body-xl mt-[60px] md:mt-[160px]">Glass</p>
-        <div>
-          {configuratorData.chooseYourGlass.map((d, i) => {
-            return (
-              <div
-                key={i}
-                style={{
-                  borderColor: `${d.isSelected ? "#0071e3" : ""}`,
-                  outline: d.isSelected ? "1px solid #0071e3" : "none",
-                  border: d.isSelected
-                    ? "1px solid #0071e3"
-                    : "1px solid #c4c4c4",
-                }}
-                className={`flex justify-between p-[18px] min-h-[64px] rounded-xl  cursor-pointer mt-[16px]`}
-                onClick={() => {
-                  const updatedData: ConfiguratorData = {
-                    ...configuratorData,
-                    chooseYourGlass: configuratorData.chooseYourGlass.map(
-                      (model) =>
-                        model.name === d.name
-                          ? { ...model, isSelected: true }
-                          : { ...model, isSelected: false }
-                    ),
-                  };
 
-                  setConfiguratorData(updatedData);
-                }}
-              >
-                <div>
-                  <p className="text-black font-[450] text-[17px]">{d.name}</p>
-                </div>
-                <div>
-                  {d.price > 0 ? (
-                    <p className="font-[400]">
-                      <span className="text-[14px] text-silver font-[400]">
-                        {d.price > 0 && formatNumberToCurrency(d.price)}
-                      </span>
-                    </p>
-                  ) : (
-                    <p className="font-[400]">
-                      <span className="text-[14px] text-silver font-[400]">
-                        Included
-                      </span>
-                    </p>
-                  )}
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        {activeTab === "cash" && (
+          <div>
+            <p className="text-desktop-body-xl mt-[60px] md:mt-[160px]">
+              Glass
+            </p>
+            <div>
+              {configuratorData.chooseYourGlass.map((d, i) => {
+                return (
+                  <div
+                    key={i}
+                    style={{
+                      borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                      outline: d.isSelected ? "1px solid #0071e3" : "none",
+                      border: d.isSelected
+                        ? "1px solid #0071e3"
+                        : "1px solid #c4c4c4",
+                    }}
+                    className={`flex justify-between p-[18px] min-h-[64px] rounded-xl  cursor-pointer mt-[16px]`}
+                    onClick={() => {
+                      const updatedData: ConfiguratorData = {
+                        ...configuratorData,
+                        chooseYourGlass: configuratorData.chooseYourGlass.map(
+                          (model) =>
+                            model.name === d.name
+                              ? { ...model, isSelected: true }
+                              : { ...model, isSelected: false }
+                        ),
+                      };
+
+                      setConfiguratorData(updatedData);
+                    }}
+                  >
+                    <div>
+                      <p className="text-black font-[450] text-[17px]">
+                        {d.name}
+                      </p>
+                    </div>
+                    <div>
+                      {d.price > 0 ? (
+                        <p className="font-[400]">
+                          <span className="text-[14px] text-silver font-[400]">
+                            {d.price > 0 && formatNumberToCurrency(d.price)}
+                          </span>
+                        </p>
+                      ) : (
+                        <p className="font-[400]">
+                          <span className="text-[14px] text-silver font-[400]">
+                            Included
+                          </span>
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </section>
       {/* section 3 */}
       <section className="section mb-[80px] md:mb-[160px]" id="section3">
@@ -831,7 +862,12 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                       {d?.price > 0 ? (
                         <p className="">
                           <span className="text-[14px] text-silver">
-                            {d.price > 0 && formatNumberToCurrency(d.price)}
+                            {activeTab === "cash"
+                              ? d.price > 0 && formatNumberToCurrency(d.price)
+                              : `+${
+                                  d.lease.weekly.price > 0 &&
+                                  formatNumberToCurrency(d.lease.weekly.price)
+                                }/wk`}
                           </span>
                         </p>
                       ) : (
@@ -905,7 +941,12 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                       {d?.price > 0 ? (
                         <p className="">
                           <span className="text-[14px] text-silver">
-                            {d.price > 0 && formatNumberToCurrency(d.price)}
+                            {activeTab === "cash"
+                              ? d.price > 0 && formatNumberToCurrency(d.price)
+                              : `+${
+                                  d.lease.weekly.price > 0 &&
+                                  formatNumberToCurrency(d.lease.weekly.price)
+                                }/wk`}
                           </span>
                         </p>
                       ) : (
@@ -977,7 +1018,8 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         </div> */}
 
         {/* Bathroom */}
-        {currentModel === "Space One Plus" &&
+        {activeTab === "cash" &&
+          currentModel === "Space One Plus" &&
           currentInterior !== "Open Plan" && (
             <>
               <p className="text-[22px] mt-[80px] md:mt-[160px]">Bathroom</p>
@@ -1048,152 +1090,168 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   </div>
                 );
               })}
-
               {/* Bathroom upgrades */}
-              {configuratorData.bathroom.find(
-                (d) => d.name === "Bathroom" && d.isSelected === true
-              ) && (
-                <>
-                  <p className="text-[22px] mt-[80px] md:mt-[160px]">
-                    Bathroom Upgrades
-                  </p>
-                  {configuratorData.bathroomUpgrades.map((d, i) => {
-                    return (
-                      <div
-                        style={{
-                          borderColor: `${d.isSelected ? "#0071e3" : ""}`,
-                          outline: d.isSelected ? "1px solid #0071e3" : "none",
-                          border: d.isSelected
-                            ? "1px solid #0071e3"
-                            : "1px solid #c4c4c4",
-                        }}
-                        onClick={() => {
-                          // const updatedData: ConfiguratorData = {
-                          //   ...configuratorData,
-                          //   bathroomUpgrades:
-                          //     configuratorData.bathroomUpgrades.map((model) => ({
-                          //       ...model,
-                          //       isSelected:
-                          //         model.name === d.name ? !model.isSelected : false,
-                          //     })),
-                          // };
+              {activeTab === "cash" &&
+                configuratorData.bathroom.find(
+                  (d) => d.name === "Bathroom" && d.isSelected === true
+                ) && (
+                  <>
+                    <p className="text-[22px] mt-[80px] md:mt-[160px]">
+                      Bathroom Upgrades
+                    </p>
+                    {configuratorData.bathroomUpgrades.map((d, i) => {
+                      return (
+                        <div
+                          style={{
+                            borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                            outline: d.isSelected
+                              ? "1px solid #0071e3"
+                              : "none",
+                            border: d.isSelected
+                              ? "1px solid #0071e3"
+                              : "1px solid #c4c4c4",
+                          }}
+                          onClick={() => {
+                            // const updatedData: ConfiguratorData = {
+                            //   ...configuratorData,
+                            //   bathroomUpgrades:
+                            //     configuratorData.bathroomUpgrades.map((model) => ({
+                            //       ...model,
+                            //       isSelected:
+                            //         model.name === d.name ? !model.isSelected : false,
+                            //     })),
+                            // };
 
-                          // setConfiguratorData(updatedData);
+                            // setConfiguratorData(updatedData);
 
-                          const updatedData: ConfiguratorData = {
-                            ...configuratorData,
-                            bathroomUpgrades:
-                              configuratorData.bathroomUpgrades.map(
-                                (model) =>
-                                  model.name === d.name
-                                    ? {
-                                        ...model,
-                                        isSelected: !model.isSelected,
-                                      } // Toggle isSelected for the clicked option
-                                    : model // Leave other options unchanged
-                              ),
-                          };
+                            const updatedData: ConfiguratorData = {
+                              ...configuratorData,
+                              bathroomUpgrades:
+                                configuratorData.bathroomUpgrades.map(
+                                  (model) =>
+                                    model.name === d.name
+                                      ? {
+                                          ...model,
+                                          isSelected: !model.isSelected,
+                                        } // Toggle isSelected for the clicked option
+                                      : model // Leave other options unchanged
+                                ),
+                            };
 
-                          setConfiguratorData(updatedData);
-                        }}
-                        key={i}
-                        className={`flex justify-between items-center p-4 rounded-xl mt-[16px] cursor-pointer`}
-                      >
-                        <div>
-                          <p className="font-[450] text-[17px]">{d.name}</p>
-                          <p className=" text-[14px] mt-[8px]">
-                            {d.isSelected ? (
-                              <span className="text-black flex">
-                                {/* <img src="/tick-icon.svg" alt="" /> */}
-                                <span className="text-blue">Added</span>
-                              </span>
-                            ) : (
-                              <span className="text-blue">Add</span>
-                            )}
-                          </p>
-                        </div>
-                        <div className="">
-                          {d.price > 0 && (
-                            <p className="">
-                              <span className="text-[14px]">
-                                {d.price > 0 && formatNumberToCurrency(d.price)}
-                              </span>
+                            setConfiguratorData(updatedData);
+                          }}
+                          key={i}
+                          className={`flex justify-between items-center p-4 rounded-xl mt-[16px] cursor-pointer`}
+                        >
+                          <div>
+                            <p className="font-[450] text-[17px]">{d.name}</p>
+                            <p className=" text-[14px] mt-[8px]">
+                              {d.isSelected ? (
+                                <span className="text-black flex">
+                                  {/* <img src="/tick-icon.svg" alt="" /> */}
+                                  <span className="text-blue">Added</span>
+                                </span>
+                              ) : (
+                                <span className="text-blue">Add</span>
+                              )}
                             </p>
-                          )}
+                          </div>
+                          <div className="">
+                            {d.price > 0 && (
+                              <p className="">
+                                <span className="text-[14px]">
+                                  {d.price > 0 &&
+                                    formatNumberToCurrency(d.price)}
+                                </span>
+                              </p>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
-                </>
-              )}
+                      );
+                    })}
+                  </>
+                )}
             </>
           )}
         {/* Choose your orientation */}
         <p className="text-[22px] mt-[80px] md:mt-[160px]">Interior Upgrades</p>
-        {configuratorData.optionalUpgradesForLayout.map((d, i) => {
-          return (
-            <div
-              style={{
-                borderColor: `${d.isSelected ? "#0071e3" : ""}`,
-                outline: d.isSelected ? "1px solid #0071e3" : "none",
-                border: d.isSelected
-                  ? "1px solid #0071e3"
-                  : "1px solid #c4c4c4",
-              }}
-              onClick={() => {
-                // const updatedData: ConfiguratorData = {
-                //   ...configuratorData,
-                //   optionalUpgradesForLayout:
-                //     configuratorData.optionalUpgradesForLayout.map((model) => ({
-                //       ...model,
-                //       isSelected:
-                //         model.name === d.name ? !model.isSelected : false,
-                //     })),
-                // };
+        {configuratorData.optionalUpgradesForLayout
+          .filter(
+            (d) =>
+              activeTab === "cash" ||
+              (activeTab === "lease" && d.lease?.weekly?.price !== undefined)
+          )
+          .map((d, i) => {
+            return (
+              <div
+                style={{
+                  borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                  outline: d.isSelected ? "1px solid #0071e3" : "none",
+                  border: d.isSelected
+                    ? "1px solid #0071e3"
+                    : "1px solid #c4c4c4",
+                }}
+                onClick={() => {
+                  // const updatedData: ConfiguratorData = {
+                  //   ...configuratorData,
+                  //   optionalUpgradesForLayout:
+                  //     configuratorData.optionalUpgradesForLayout.map((model) => ({
+                  //       ...model,
+                  //       isSelected:
+                  //         model.name === d.name ? !model.isSelected : false,
+                  //     })),
+                  // };
 
-                // setConfiguratorData(updatedData);
+                  // setConfiguratorData(updatedData);
 
-                const updatedData: ConfiguratorData = {
-                  ...configuratorData,
-                  optionalUpgradesForLayout:
-                    configuratorData.optionalUpgradesForLayout.map(
-                      (model) =>
-                        model.name === d.name
-                          ? { ...model, isSelected: !model.isSelected } // Toggle isSelected for the clicked option
-                          : model // Leave other options unchanged
-                    ),
-                };
+                  const updatedData: ConfiguratorData = {
+                    ...configuratorData,
+                    optionalUpgradesForLayout:
+                      configuratorData.optionalUpgradesForLayout.map(
+                        (model) =>
+                          model.name === d.name
+                            ? { ...model, isSelected: !model.isSelected } // Toggle isSelected for the clicked option
+                            : model // Leave other options unchanged
+                      ),
+                  };
 
-                setConfiguratorData(updatedData);
-              }}
-              key={i}
-              className={`flex justify-between items-center p-4 rounded-xl mt-[16px] cursor-pointer`}
-            >
-              <div>
-                <p className="font-[450] text-[17px]">{d.name}</p>
-                <p className=" text-[14px] mt-[8px]">
-                  {d.isSelected ? (
-                    <span className="text-black flex">
-                      {/* <img src="/tick-icon.svg" alt="" /> */}
-                      <span className="text-blue">Added</span>
-                    </span>
-                  ) : (
-                    <span className="text-blue">Add</span>
-                  )}
-                </p>
-              </div>
-              <div className="">
-                {d.price > 0 && (
-                  <p className="">
-                    <span className="text-[14px]">
-                      {d.price > 0 && formatNumberToCurrency(d.price)}
-                    </span>
+                  setConfiguratorData(updatedData);
+                }}
+                key={i}
+                className={`flex justify-between items-center p-4 rounded-xl mt-[16px] cursor-pointer`}
+              >
+                <div>
+                  <p className="font-[450] text-[17px]">{d.name}</p>
+                  <p className=" text-[14px] mt-[8px]">
+                    {d.isSelected ? (
+                      <span className="text-black flex">
+                        {/* <img src="/tick-icon.svg" alt="" /> */}
+                        <span className="text-blue">Added</span>
+                      </span>
+                    ) : (
+                      <span className="text-blue">Add</span>
+                    )}
                   </p>
-                )}
+                </div>
+                <div className="">
+                  {d.price > 0 && (
+                    <p className="">
+                      <span className="text-[14px]">
+                        {/* {d.price > 0 && formatNumberToCurrency(d.price)} */}
+
+                        {activeTab === "cash"
+                          ? d.price > 0 && formatNumberToCurrency(d.price)
+                          : `+ ${
+                              d?.lease?.weekly?.price > 0 &&
+                              formatNumberToCurrency(d.lease.weekly.price)
+                            }/wk`}
+                      </span>
+                    </p>
+                  )}
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
 
         {/* <button
           onClick={() => {
@@ -1241,7 +1299,13 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   {(d?.price ?? 0) > 0 && (
                     <p className="">
                       <span className="text-[14px] text-silver">
-                        {formatNumberToCurrency(d.price ?? 0)}
+                        {/* {formatNumberToCurrency(d.price ?? 0)} */}
+                        {activeTab === "cash"
+                          ? d.price > 0 && formatNumberToCurrency(d.price)
+                          : `+ ${
+                              d?.lease?.weekly?.price > 0 &&
+                              formatNumberToCurrency(d.lease.weekly.price)
+                            }/wk`}
                       </span>
                     </p>
                   )}
@@ -1276,147 +1340,165 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         })}
 
         {/* Solar */}
-        <p className="text-[22px] mt-[80px] md:mt-[160px]">Solar</p>
-        {configuratorData.solar.map((d, i) => {
-          return (
-            <div
-              onClick={() => {
-                const updatedData: ConfiguratorData = {
-                  ...configuratorData,
-                  solar: configuratorData.solar.map((model) =>
-                    model.name === d.name
-                      ? { ...model, isSelected: true }
-                      : { ...model, isSelected: false }
-                  ),
-                };
+        {activeTab === "cash" && (
+          <div>
+            <p className="text-[22px] mt-[80px] md:mt-[160px]">Solar</p>
+            {configuratorData.solar.map((d, i) => {
+              return (
+                <div
+                  onClick={() => {
+                    const updatedData: ConfiguratorData = {
+                      ...configuratorData,
+                      solar: configuratorData.solar.map((model) =>
+                        model.name === d.name
+                          ? { ...model, isSelected: true }
+                          : { ...model, isSelected: false }
+                      ),
+                    };
 
-                setConfiguratorData(updatedData);
-              }}
-              key={i}
-              className={` p-4 min-h-[60px] rounded-xl mt-[16px] cursor-pointer`}
-              style={{
-                borderColor: `${d.isSelected ? "#0071e3" : ""}`,
-                outline: d.isSelected ? "1px solid #0071e3" : "none",
-                border: d.isSelected
-                  ? "1px solid #0071e3"
-                  : "1px solid #c4c4c4",
-              }}
-            >
-              <div className="flex justify-between w-full">
-                <div>
-                  <p className="font-[400] text-[17px]">{d.name}</p>
+                    setConfiguratorData(updatedData);
+                  }}
+                  key={i}
+                  className={` p-4 min-h-[60px] rounded-xl mt-[16px] cursor-pointer`}
+                  style={{
+                    borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                    outline: d.isSelected ? "1px solid #0071e3" : "none",
+                    border: d.isSelected
+                      ? "1px solid #0071e3"
+                      : "1px solid #c4c4c4",
+                  }}
+                >
+                  <div className="flex justify-between w-full">
+                    <div>
+                      <p className="font-[400] text-[17px]">{d.name}</p>
+                    </div>
+                    <div>
+                      {(d?.price ?? 0) > 0 && (
+                        <p className="">
+                          <span className="text-[14px] text-silver">
+                            {formatNumberToCurrency(d.price ?? 0)}
+                          </span>
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div>
+                    {/* {d?.details && (
+                  <hr className="my-[20px] h-[1.5px] bg-[#CCCCCCCC]" />
+                )} */}
+                    <ul
+                      className={`mt-[${
+                        i === 0 && "20px"
+                      }] list-disc list-inside`}
+                    >
+                      {" "}
+                      {d?.details?.map((val, i) => {
+                        return (
+                          <li
+                            className={`text-[14px] text-silver ${
+                              i > 0 && " mt-[5px]"
+                            }`}
+                            key={val}
+                          >
+                            {" "}
+                            {val}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
                 </div>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Essentials */}
+        <p className="text-[22px] mt-[80px] md:mt-[160px]">Essentials</p>
+        {configuratorData.essentials
+          .filter(
+            (d) =>
+              activeTab === "cash" ||
+              (activeTab === "lease" && d.lease?.weekly?.price !== undefined)
+          )
+          .map((d, i) => {
+            return (
+              <div
+                style={{
+                  borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                  outline: d.isSelected ? "1px solid #0071e3" : "none",
+                  border: d.isSelected
+                    ? "1px solid #0071e3"
+                    : "1px solid #c4c4c4",
+                }}
+                onClick={() => {
+                  // const updatedData: ConfiguratorData = {
+                  //   ...configuratorData,
+                  //   essentials:
+                  //     configuratorData.essentials.map((model) => ({
+                  //       ...model,
+                  //       isSelected:
+                  //         model.name === d.name ? !model.isSelected : false,
+                  //     })),
+                  // };
+
+                  // setConfiguratorData(updatedData);
+
+                  const updatedData: ConfiguratorData = {
+                    ...configuratorData,
+                    essentials: configuratorData.essentials.map((model) => {
+                      if (model.name === d.name) {
+                        if (!model.isSelected) {
+                          setEssentialNameSelected(d.name); // Set only if first time selecting
+                        } else {
+                          setEssentialNameSelected("");
+                        }
+                      }
+                      return model.name === d.name
+                        ? { ...model, isSelected: !model.isSelected } // Toggle isSelected for the clicked option
+                        : model; // Leave other options unchanged
+                    }),
+                  };
+
+                  console.log("updatedData=>>>>", updatedData);
+
+                  setConfiguratorData(updatedData);
+                }}
+                key={i}
+                className={`flex justify-between items-center p-4 rounded-xl mt-[16px] cursor-pointer`}
+              >
                 <div>
-                  {(d?.price ?? 0) > 0 && (
+                  <p className="font-[450] text-[17px]">{d.name}</p>
+                  <p className=" text-[14px] mt-[8px]">
+                    {d.isSelected ? (
+                      <span className="text-black flex">
+                        {/* <img src="/tick-icon.svg" alt="" /> */}
+                        <span className="text-blue">Added</span>
+                      </span>
+                    ) : (
+                      <span className="text-blue">Add</span>
+                    )}
+                  </p>
+                </div>
+                <div className="">
+                  {d.price > 0 && (
                     <p className="">
-                      <span className="text-[14px] text-silver">
-                        {formatNumberToCurrency(d.price ?? 0)}
+                      <span className="text-[14px]">
+                        {/* {d.price > 0 && formatNumberToCurrency(d.price)} */}
+                        {activeTab === "cash"
+                          ? d.price > 0 && formatNumberToCurrency(d.price)
+                          : `+ ${
+                              d?.lease?.weekly?.price > 0 &&
+                              formatNumberToCurrency(d.lease.weekly.price)
+                            }/wk`}
                       </span>
                     </p>
                   )}
                 </div>
               </div>
-
-              <div>
-                {/* {d?.details && (
-                  <hr className="my-[20px] h-[1.5px] bg-[#CCCCCCCC]" />
-                )} */}
-                <ul
-                  className={`mt-[${i === 0 && "20px"}] list-disc list-inside`}
-                >
-                  {" "}
-                  {d?.details?.map((val, i) => {
-                    return (
-                      <li
-                        className={`text-[14px] text-silver ${
-                          i > 0 && " mt-[5px]"
-                        }`}
-                        key={val}
-                      >
-                        {" "}
-                        {val}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            </div>
-          );
-        })}
-
-        {/* Essentials */}
-        <p className="text-[22px] mt-[80px] md:mt-[160px]">Essentials</p>
-        {configuratorData.essentials.map((d, i) => {
-          return (
-            <div
-              style={{
-                borderColor: `${d.isSelected ? "#0071e3" : ""}`,
-                outline: d.isSelected ? "1px solid #0071e3" : "none",
-                border: d.isSelected
-                  ? "1px solid #0071e3"
-                  : "1px solid #c4c4c4",
-              }}
-              onClick={() => {
-                // const updatedData: ConfiguratorData = {
-                //   ...configuratorData,
-                //   essentials:
-                //     configuratorData.essentials.map((model) => ({
-                //       ...model,
-                //       isSelected:
-                //         model.name === d.name ? !model.isSelected : false,
-                //     })),
-                // };
-
-                // setConfiguratorData(updatedData);
-
-                const updatedData: ConfiguratorData = {
-                  ...configuratorData,
-                  essentials: configuratorData.essentials.map((model) => {
-                    if (model.name === d.name) {
-                      if (!model.isSelected) {
-                        setEssentialNameSelected(d.name); // Set only if first time selecting
-                      } else {
-                        setEssentialNameSelected("");
-                      }
-                    }
-                    return model.name === d.name
-                      ? { ...model, isSelected: !model.isSelected } // Toggle isSelected for the clicked option
-                      : model; // Leave other options unchanged
-                  }),
-                };
-
-                console.log("updatedData=>>>>", updatedData);
-
-                setConfiguratorData(updatedData);
-              }}
-              key={i}
-              className={`flex justify-between items-center p-4 rounded-xl mt-[16px] cursor-pointer`}
-            >
-              <div>
-                <p className="font-[450] text-[17px]">{d.name}</p>
-                <p className=" text-[14px] mt-[8px]">
-                  {d.isSelected ? (
-                    <span className="text-black flex">
-                      {/* <img src="/tick-icon.svg" alt="" /> */}
-                      <span className="text-blue">Added</span>
-                    </span>
-                  ) : (
-                    <span className="text-blue">Add</span>
-                  )}
-                </p>
-              </div>
-              <div className="">
-                {d.price > 0 && (
-                  <p className="">
-                    <span className="text-[14px]">
-                      {d.price > 0 && formatNumberToCurrency(d.price)}
-                    </span>
-                  </p>
-                )}
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </section>
       {/*  section 5 */}
 
@@ -1460,11 +1542,19 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   const selectedModel = configuratorData.chooseYourModel.find(
                     (d) => d.isSelected
                   );
-                  const price = selectedModel?.price;
+                  const price =
+                    activeTab === "cash"
+                      ? selectedModel?.price
+                      : selectedModel?.lease.weekly.price;
 
                   return price === 0
                     ? "Included"
-                    : price && formatNumberToCurrency(price);
+                    : price &&
+                        `${
+                          activeTab === "cash"
+                            ? formatNumberToCurrency(price)
+                            : `${formatNumberToCurrency(price)}/wk`
+                        }`;
                 })()}
               </p>
             </div>
@@ -1473,10 +1563,17 @@ const Configurator: React.FC<ConfiguratorProps> = ({
           <div className="mt-[15px] flex justify-between">
             <div>
               <p className="text-[14px] font-[400]  text-silver">
-                {`${
-                  configuratorData.chooseYourFinish.find((d) => d.isSelected)
-                    ?.name
-                } Base Color`}
+                {activeTab === "cash"
+                  ? `${
+                      configuratorData?.chooseYourFinish?.cash?.find(
+                        (d) => d.isSelected
+                      )?.name
+                    } Base Color`
+                  : `${
+                      configuratorData?.chooseYourFinish?.lease?.find(
+                        (d) => d.isSelected
+                      )?.name
+                    } Base Color`}
               </p>
             </div>
             <div className="flex justify-between">
@@ -1514,30 +1611,32 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             </div>
           </div>
           {/* 5 */}
-          <div className="mt-[15px] flex justify-between">
-            <div>
-              <p className="text-[14px] font-[400]  text-silver">
-                {`${
-                  configuratorData.chooseYourGlass.find((d) => d.isSelected)
-                    ?.name
-                }`}
-              </p>
-            </div>
-            <div className="flex justify-between">
-              <p className="text-[14px] font-[400]  text-silver">
-                {(() => {
-                  const selectedModel = configuratorData.chooseYourGlass.find(
-                    (d) => d.isSelected
-                  );
-                  const price = selectedModel?.price;
+          {activeTab === "cash" && (
+            <div className="mt-[15px] flex justify-between">
+              <div>
+                <p className="text-[14px] font-[400]  text-silver">
+                  {`${
+                    configuratorData.chooseYourGlass.find((d) => d.isSelected)
+                      ?.name
+                  }`}
+                </p>
+              </div>
+              <div className="flex justify-between">
+                <p className="text-[14px] font-[400]  text-silver">
+                  {(() => {
+                    const selectedModel = configuratorData.chooseYourGlass.find(
+                      (d) => d.isSelected
+                    );
+                    const price = selectedModel?.price;
 
-                  return price === 0
-                    ? "Included"
-                    : price && formatNumberToCurrency(price);
-                })()}
-              </p>
+                    return price === 0
+                      ? "Included"
+                      : price && formatNumberToCurrency(price);
+                  })()}
+                </p>
+              </div>
             </div>
-          </div>
+          )}
           {/* 6 */}
           <div className="mt-[15px] flex justify-between">
             <div>
@@ -1556,11 +1655,19 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                     configuratorData.chooseYourLayoutFor16.find(
                       (d) => d.isSelected
                     );
-                  const price = selectedModel?.price;
+                  const price =
+                    activeTab === "cash"
+                      ? selectedModel?.price
+                      : selectedModel?.lease.weekly.price;
 
                   return price === 0
                     ? "Included"
-                    : price && formatNumberToCurrency(price);
+                    : price &&
+                        `${
+                          activeTab === "cash"
+                            ? formatNumberToCurrency(price)
+                            : `${formatNumberToCurrency(price)}/wk`
+                        }`;
                 })()}
               </p>
             </div>
@@ -1578,7 +1685,15 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                     </div>
                     <div>
                       <p className="text-[14px] font-[400]  text-silver">
-                        {formatNumberToCurrency(d?.price)}
+                        {/* {formatNumberToCurrency(d?.price)} */}
+
+                        {`${
+                          activeTab === "cash"
+                            ? formatNumberToCurrency(d.price)
+                            : `${formatNumberToCurrency(
+                                d.lease?.weekly.price
+                              )}/wk`
+                        }`}
                       </p>
                     </div>
                   </div>
@@ -1587,116 +1702,190 @@ const Configurator: React.FC<ConfiguratorProps> = ({
             })}
           </div>
           {/* 8 */}
-          <div className="">
-            {(() => {
-              const selectedBathroom = configuratorData.bathroom.find(
-                (d) => d.isSelected
-              );
+          {activeTab === "cash" && (
+            <div className="">
+              {(() => {
+                const selectedBathroom = configuratorData.bathroom.find(
+                  (d) => d.isSelected
+                );
 
-              return selectedBathroom?.name === "Bathroom" ? (
-                <div className="mt-[15px] flex justify-between">
-                  <div>
-                    <p className="text-[14px] font-[400] text-silver">
-                      {selectedBathroom.name}
-                    </p>
+                return selectedBathroom?.name === "Bathroom" ? (
+                  <div className="mt-[15px] flex justify-between">
+                    <div>
+                      <p className="text-[14px] font-[400] text-silver">
+                        {selectedBathroom.name}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[14px] font-[400] text-silver">
+                        {selectedBathroom.price &&
+                          formatNumberToCurrency(selectedBathroom.price)}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-[14px] font-[400] text-silver">
-                      {selectedBathroom.price &&
-                        formatNumberToCurrency(selectedBathroom.price)}
-                    </p>
-                  </div>
-                </div>
-              ) : null;
-            })()}
-          </div>
+                ) : null;
+              })()}
+            </div>
+          )}
           {/* 9 */}
-          <div className="">
-            {configuratorData.bathroomUpgrades.map((d, i) => {
-              return (
-                d.isSelected && (
-                  <div key={i} className={`flex justify-between mt-[15px]`}>
-                    <div>
-                      <p className="text-[14px] font-[400]  text-silver">
-                        {d?.name}
-                      </p>
+          {activeTab === "cash" && (
+            <div className="">
+              {configuratorData.bathroomUpgrades.map((d, i) => {
+                return (
+                  d.isSelected && (
+                    <div key={i} className={`flex justify-between mt-[15px]`}>
+                      <div>
+                        <p className="text-[14px] font-[400]  text-silver">
+                          {d?.name}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-[14px] font-[400]  text-silver">
+                          {formatNumberToCurrency(d?.price)}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-[14px] font-[400]  text-silver">
-                        {formatNumberToCurrency(d?.price)}
-                      </p>
-                    </div>
-                  </div>
-                )
-              );
-            })}
-          </div>
-          {/* 10 */}
-          <div className="">
-            {(() => {
-              const selectedSolar = configuratorData.solar.find(
-                (d) => d.isSelected
-              );
+                  )
+                );
+              })}
+            </div>
+          )}
+          {/* 10 = sound */}
+          {
+            <div className="">
+              {(() => {
+                const selectedSound = configuratorData.chooseYourEnergy.find(
+                  (d) => d.isSelected
+                );
 
-              return selectedSolar?.name === "Solar Package" ? (
-                <div className="mt-[15px] flex justify-between">
-                  <div>
-                    <p className="text-[14px] font-[400] text-silver">
-                      {selectedSolar.name}
-                    </p>
+                return selectedSound?.name === "Sound System" ? (
+                  <div className="mt-[15px] flex justify-between">
+                    <div>
+                      <p className="text-[14px] font-[400] text-silver">
+                        {selectedSound.name}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[14px] font-[400] text-silver">
+                        {/* {selectedSound.price &&
+                          formatNumberToCurrency(selectedSound.price)} */}
+
+                        {`${
+                          activeTab === "cash"
+                            ? formatNumberToCurrency(selectedSound.price)
+                            : `${formatNumberToCurrency(
+                                selectedSound.lease?.weekly.price
+                              )}/wk`
+                        }`}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-[14px] font-[400] text-silver">
-                      {selectedSolar.price &&
-                        formatNumberToCurrency(selectedSolar.price)}
-                    </p>
+                ) : null;
+              })()}
+            </div>
+          }
+          {/* 10 */}
+          {activeTab === "cash" && (
+            <div className="">
+              {(() => {
+                const selectedSolar = configuratorData.solar.find(
+                  (d) => d.isSelected
+                );
+
+                return selectedSolar?.name === "Solar Package" ? (
+                  <div className="mt-[15px] flex justify-between">
+                    <div>
+                      <p className="text-[14px] font-[400] text-silver">
+                        {selectedSolar.name}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[14px] font-[400] text-silver">
+                        {selectedSolar.price &&
+                          formatNumberToCurrency(selectedSolar.price)}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ) : null;
-            })()}
-          </div>
+                ) : null;
+              })()}
+            </div>
+          )}
           {/* 11 */}
           <div className="">
-            {configuratorData.essentials.map((d, i) => {
-              return (
-                d.isSelected && (
-                  <div key={i} className={`flex justify-between mt-[15px]`}>
-                    <div>
-                      <p className="text-[14px] font-[400]  text-silver">
-                        {d?.name}
-                      </p>
+            {configuratorData.essentials
+              .filter(
+                (d) =>
+                  activeTab === "cash" ||
+                  (activeTab === "lease" &&
+                    d.lease?.weekly?.price !== undefined)
+              )
+              .map((d, i) => {
+                return (
+                  d.isSelected && (
+                    <div key={i} className={`flex justify-between mt-[15px]`}>
+                      <div>
+                        <p className="text-[14px] font-[400]  text-silver">
+                          {d?.name}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-[14px] font-[400]  text-silver">
+                          {/* {formatNumberToCurrency(d?.price)} */}
+
+                          {`${
+                            activeTab === "cash"
+                              ? formatNumberToCurrency(d.price)
+                              : `${formatNumberToCurrency(
+                                  d.lease?.weekly.price
+                                )}/wk`
+                          }`}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-[14px] font-[400]  text-silver">
-                        {formatNumberToCurrency(d?.price)}
-                      </p>
-                    </div>
-                  </div>
-                )
-              );
-            })}
+                  )
+                );
+              })}
           </div>
           <div>
             <hr className="my-[20px] h-[1.5px] bg-[#C4C4C4]" />
           </div>
           <div className="flex items-center justify-between">
-            <p className="text-[14px] font-[400]  text-silver">Est. Price</p>
+            <p className="text-[14px] font-[400]  text-silver">
+              {activeTab === "cash" ? "Est. Price" : "Est. Lease Payment"}
+            </p>
             <p className="text-[14px] font-[400]  text-silver">
               {formatNumberToCurrency(totalPrice)}
             </p>
           </div>
           <div className="mt-[40px] flex items-center justify-between">
-            <p className="text-[24px] font-[450]">Est. Price</p>
+            <p className="text-[24px] font-[450]">
+              {activeTab === "cash" ? "Est. Price" : "Est. Lease Payment"}
+            </p>
             <p className="text-[24px] font-[450]">
               {formatNumberToCurrency(totalPrice)}
             </p>
           </div>
           <div className="mb-[100px] ">
-            <p className="text-[12px] mt-[20px] font-[400]  text-light-silver">
-              Illustrative model shown. Pricing does not include on-site
-              installation or groundworks. Delivery schedule and final pricing
-              are subject to local permits and delivery location.
-            </p>
+            {activeTab === "cash" ? (
+              <p className="text-[12px] mt-[20px] font-[400]  text-light-silver">
+                Illustrative model shown. Pricing does not include on-site
+                installation or groundworks. Delivery schedule and final pricing
+                are subject to local permits and delivery location.
+              </p>
+            ) : (
+              <p className="text-[12px] mt-[20px] font-[400]  text-light-silver">
+                These are estimated weekly payments if you participate in Space
+                leasing. These estimates are subject to change and contingent on
+                lease approval and other factors. The calculator does not
+                include taxes or fees. Your applicable taxes and fees will be
+                confirmed for you closer to time of delivery. Pricing does not
+                include on-site installation or groundworks. Early termination
+                fees apply. Fees may be charged for excessive wear plus any
+                overage of damage. Late payments will incur a 5% fee. Lease does
+                not include maintenance or insurance. Complete terms will be
+                included in Modular Building Lease Agreement.
+              </p>
+            )}
           </div>
         </section>
         {/* TODO: */}

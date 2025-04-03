@@ -4,50 +4,74 @@ export const data = {
       name: "Space One",
       length: "16 Square Meters",
       price: 59990,
-      priceCycle: "week",
+      lease: {
+        weekly: {
+          price: 395,
+        },
+      },
       isSelected: true,
     },
     {
       name: "Space One Plus",
       length: "25 Square Meters",
       price: 89990,
-      priceCycle: "week",
+      lease: {
+        weekly: {
+          price: 525,
+        },
+      },
       isSelected: false,
     },
   ],
 
-  chooseYourFinish: [
-    {
-      color: "#000000",
-      name: "Space Black",
-      isSelected: true,
-      imageFolderName: "BLACK",
-    }, // to image work you need to change to Black, remame the folder
-    {
-      color: "#ECECE7",
-      name: "Cloud White",
-      isSelected: false,
-      imageFolderName: "WHITE",
-    },
-    {
-      color: "#343C3D",
-      name: "Midnight Silver",
-      isSelected: false,
-      imageFolderName: "SILVER",
-    },
-    {
-      color: "#CAC1AF",
-      name: "Desert Mist",
-      isSelected: false,
-      imageFolderName: "MIST",
-    },
-    {
-      color: "#3E4B41",
-      name: "Sage Green",
-      isSelected: false,
-      imageFolderName: "GREEN",
-    },
-  ],
+  chooseYourFinish: {
+    cash: [
+      {
+        color: "#000000",
+        name: "Space Black",
+        isSelected: true,
+        imageFolderName: "BLACK",
+      }, // to image work you need to change to Black, remame the folder
+      {
+        color: "#ECECE7",
+        name: "Cloud White",
+        isSelected: false,
+        imageFolderName: "WHITE",
+      },
+      {
+        color: "#343C3D",
+        name: "Midnight Silver",
+        isSelected: false,
+        imageFolderName: "SILVER",
+      },
+      {
+        color: "#CAC1AF",
+        name: "Desert Mist",
+        isSelected: false,
+        imageFolderName: "MIST",
+      },
+      {
+        color: "#3E4B41",
+        name: "Sage Green",
+        isSelected: false,
+        imageFolderName: "GREEN",
+      },
+    ],
+    lease: [
+      {
+        color: "#000000",
+        name: "Space Black",
+        isSelected: true,
+        imageFolderName: "BLACK",
+      }, // to image work you need to change to Black, remame the folder
+      {
+        color: "#ECECE7",
+        name: "Cloud White",
+        isSelected: false,
+        imageFolderName: "WHITE",
+      },
+    ],
+  },
 
   chooseYourFinishDeck: [
     { color: "#876F57", name: "Golden Teak", isSelected: true }, // to image work you need to change to Black, remame the folder
@@ -86,7 +110,11 @@ export const data = {
       name: "Open Plan",
       description: "Mesa décor",
       price: 0,
-      priceCycle: "week",
+      lease: {
+        weekly: {
+          price: 0,
+        },
+      },
       image: "16-open.jpg",
       isSelected: true,
     },
@@ -99,7 +127,11 @@ export const data = {
         "Satin black handles",
       ],
       price: 6200,
-      priceCycle: "week",
+      lease: {
+        weekly: {
+          price: 85,
+        },
+      },
       image: "16-wardrobe.jpg",
       isSelected: false,
     },
@@ -115,7 +147,11 @@ export const data = {
         "Satin black faucet",
       ],
       price: 9500,
-      priceCycle: "week",
+      lease: {
+        weekly: {
+          price: 95,
+        },
+      },
       image: "16-kitchen.jpg",
       isSelected: false,
     },
@@ -125,7 +161,11 @@ export const data = {
       name: "Open Plan",
       description: "Mesa décor",
       price: 0,
-      priceCycle: "week",
+      lease: {
+        weekly: {
+          price: 0,
+        },
+      },
       image: "25-open.jpg",
       isSelected: true,
     },
@@ -138,7 +178,11 @@ export const data = {
         "Satin black handles",
       ],
       price: 6200,
-      priceCycle: "week",
+      lease: {
+        weekly: {
+          price: 86,
+        },
+      },
       image: "25-wardrobe.jpg",
       isSelected: false,
     },
@@ -154,7 +198,11 @@ export const data = {
         "Satin black faucet",
       ],
       price: 9500,
-      priceCycle: "week",
+      lease: {
+        weekly: {
+          price: 96,
+        },
+      },
       image: "25-kitchen.jpg",
       isSelected: false,
     },
@@ -164,7 +212,8 @@ export const data = {
       name: "Ceiling fan",
       description: "",
       price: 550,
-      priceCycle: "week",
+      // no lease for the ceiling fan
+
       isSelected: false,
       image: "/ConfiguratorImages/popup/SO-FD-IV-min.jpg",
     },
@@ -172,7 +221,11 @@ export const data = {
       name: "Roller Blinds",
       description: "",
       price: 1950,
-      priceCycle: "week",
+      lease: {
+        weekly: {
+          price: 25,
+        },
+      },
       isSelected: false,
       image: "/ConfiguratorImages/popup/SO-FD-IV-min.jpg",
     },
@@ -187,6 +240,11 @@ export const data = {
         "Signature aluminum grill",
       ],
       price: 3750,
+      lease: {
+        weekly: {
+          price: 65,
+        },
+      },
       isSelected: false,
     },
     {
@@ -194,6 +252,11 @@ export const data = {
       description: "Power with existing utilities",
       isSelected: true,
       price: 0,
+      lease: {
+        weekly: {
+          price: 0,
+        },
+      },
     },
   ],
 
@@ -243,14 +306,14 @@ export const data = {
       name: "Accessibility rails",
       description: "",
       price: 450,
-      priceCycle: "week",
+
       isSelected: false,
     },
     {
       name: "Dyson Airblade V",
       description: "",
       price: 1450,
-      priceCycle: "week",
+
       isSelected: false,
     },
   ],
@@ -260,7 +323,11 @@ export const data = {
       name: "Guest key",
       description: "",
       price: 65,
-      priceCycle: "week",
+      lease: {
+        weekly: {
+          price: 25,
+        },
+      },
       isSelected: false,
       image: "",
     },
@@ -268,7 +335,7 @@ export const data = {
       name: "Translucent glass",
       description: "",
       price: 850,
-      priceCycle: "week",
+
       isSelected: false,
       image: "translucent-glass.jpg",
     },
@@ -276,7 +343,11 @@ export const data = {
       name: "Sliding door insect screen",
       description: "",
       price: 1050,
-      priceCycle: "week",
+      lease: {
+        weekly: {
+          price: 45,
+        },
+      },
       isSelected: false,
       image: "insect-screen.jpg",
     },
@@ -343,15 +414,27 @@ export interface ConfiguratorData {
     name: string;
     length: string;
     price: number;
-    priceCycle: string;
+    lease: {
+      weekly: {
+        price: number;
+      };
+    };
     isSelected: boolean;
   }>;
-  chooseYourFinish: Array<{
-    color: string;
-    name: string;
-    isSelected: boolean;
-    imageFolderName: string;
-  }>;
+  chooseYourFinish: {
+    cash: Array<{
+      color: string;
+      name: string;
+      isSelected: boolean;
+      imageFolderName: string;
+    }>;
+    lease: Array<{
+      color: string;
+      name: string;
+      isSelected: boolean;
+      imageFolderName: string;
+    }>;
+  };
   chooseYourFinishDeck: Array<{
     color: string;
     name: string;
@@ -373,7 +456,11 @@ export interface ConfiguratorData {
     description: string;
     details?: string[];
     price: number;
-    priceCycle: string;
+    lease: {
+      weekly: {
+        price: number;
+      };
+    };
     isSelected: boolean;
     image: string;
   }>;
@@ -382,7 +469,11 @@ export interface ConfiguratorData {
     description: string;
     details?: string[];
     price: number;
-    priceCycle: string;
+    lease: {
+      weekly: {
+        price: number;
+      };
+    };
     isSelected: boolean;
     image: string;
   }>;
@@ -396,7 +487,11 @@ export interface ConfiguratorData {
     name: string;
     description: string;
     price: number;
-    priceCycle: string;
+    lease?: {
+      weekly: {
+        price: number;
+      };
+    };
     isSelected: boolean;
     image: string;
   }>;
@@ -404,14 +499,18 @@ export interface ConfiguratorData {
     name: string;
     description: string;
     price: number;
-    priceCycle: string;
+
     isSelected: boolean;
   }>;
   essentials: Array<{
     name: string;
     description: string;
     price: number;
-    priceCycle: string;
+    lease?: {
+      weekly: {
+        price: number;
+      };
+    };
     isSelected: boolean;
     image: string;
   }>;
@@ -419,7 +518,12 @@ export interface ConfiguratorData {
     name: string;
     description: string;
     details?: string[];
-    price?: number | undefined; // Optional since "No solar" doesn't have a price
+    price: number; // Optional since "No solar" doesn't have a price
+    lease: {
+      weekly: {
+        price: number;
+      };
+    };
     isSelected: boolean;
   }>;
   solar: Array<{
