@@ -2191,91 +2191,93 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                 </p>
               )}
             </div>
-
-            <div>
-              <p className="text-[22px] font-[450] mt-[80px]">
-                How many units?
-              </p>
+            {activeTab === "lease" && (
               <div>
-                {configuratorData.quantityOfUnit.map((d, i) => {
-                  return (
-                    <div
-                      key={i}
-                      style={{
-                        borderColor: `${d.isSelected ? "#0071e3" : ""}`,
-                        outline: d.isSelected ? "1px solid #0071e3" : "none",
-                        border: d.isSelected
-                          ? "1px solid #0071e3"
-                          : "1px solid #c4c4c4",
-                      }}
-                      className={`flex justify-between p-[18px] min-h-[64px] rounded-xl  cursor-pointer ${
-                        i === 0 ? "mt-[20px]" : "mt-[16px]"
-                      }`}
-                      onClick={() => {
-                        const updatedData: ConfiguratorData = {
-                          ...configuratorData,
-                          quantityOfUnit: configuratorData.quantityOfUnit.map(
-                            (model) =>
+                <p className="text-[22px] font-[450] mt-[80px]">
+                  How many units?
+                </p>
+                <div>
+                  {configuratorData.quantityOfUnit.map((d, i) => {
+                    return (
+                      <div
+                        key={i}
+                        style={{
+                          borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                          outline: d.isSelected ? "1px solid #0071e3" : "none",
+                          border: d.isSelected
+                            ? "1px solid #0071e3"
+                            : "1px solid #c4c4c4",
+                        }}
+                        className={`flex justify-between p-[18px] min-h-[64px] rounded-xl  cursor-pointer ${
+                          i === 0 ? "mt-[20px]" : "mt-[16px]"
+                        }`}
+                        onClick={() => {
+                          const updatedData: ConfiguratorData = {
+                            ...configuratorData,
+                            quantityOfUnit: configuratorData.quantityOfUnit.map(
+                              (model) =>
+                                model.name === d.name
+                                  ? { ...model, isSelected: true }
+                                  : { ...model, isSelected: false }
+                            ),
+                          };
+
+                          setConfiguratorData(updatedData);
+                        }}
+                      >
+                        <div>
+                          <p className="text-black font-[450] text-[17px]">
+                            {d.name}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+            {activeTab === "lease" && (
+              <div>
+                <p className="text-[22px] font-[450] mt-[80px]">Term</p>
+                <div>
+                  {configuratorData.terms.map((d, i) => {
+                    return (
+                      <div
+                        key={i}
+                        style={{
+                          borderColor: `${d.isSelected ? "#0071e3" : ""}`,
+                          outline: d.isSelected ? "1px solid #0071e3" : "none",
+                          border: d.isSelected
+                            ? "1px solid #0071e3"
+                            : "1px solid #c4c4c4",
+                        }}
+                        className={`flex justify-between p-[18px] min-h-[64px] rounded-xl  cursor-pointer ${
+                          i === 0 ? "mt-[20px]" : "mt-[16px]"
+                        }`}
+                        onClick={() => {
+                          const updatedData: ConfiguratorData = {
+                            ...configuratorData,
+                            terms: configuratorData.terms.map((model) =>
                               model.name === d.name
                                 ? { ...model, isSelected: true }
                                 : { ...model, isSelected: false }
-                          ),
-                        };
+                            ),
+                          };
 
-                        setConfiguratorData(updatedData);
-                      }}
-                    >
-                      <div>
-                        <p className="text-black font-[450] text-[17px]">
-                          {d.name}
-                        </p>
+                          setConfiguratorData(updatedData);
+                        }}
+                      >
+                        <div>
+                          <p className="text-black font-[450] text-[17px]">
+                            {d.name}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-
-            <div>
-              <p className="text-[22px] font-[450] mt-[80px]">Term</p>
-              <div>
-                {configuratorData.terms.map((d, i) => {
-                  return (
-                    <div
-                      key={i}
-                      style={{
-                        borderColor: `${d.isSelected ? "#0071e3" : ""}`,
-                        outline: d.isSelected ? "1px solid #0071e3" : "none",
-                        border: d.isSelected
-                          ? "1px solid #0071e3"
-                          : "1px solid #c4c4c4",
-                      }}
-                      className={`flex justify-between p-[18px] min-h-[64px] rounded-xl  cursor-pointer ${
-                        i === 0 ? "mt-[20px]" : "mt-[16px]"
-                      }`}
-                      onClick={() => {
-                        const updatedData: ConfiguratorData = {
-                          ...configuratorData,
-                          terms: configuratorData.terms.map((model) =>
-                            model.name === d.name
-                              ? { ...model, isSelected: true }
-                              : { ...model, isSelected: false }
-                          ),
-                        };
-
-                        setConfiguratorData(updatedData);
-                      }}
-                    >
-                      <div>
-                        <p className="text-black font-[450] text-[17px]">
-                          {d.name}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+            )}
             <div>
               <p className="text-[22px] font-[450] mt-[80px]">
                 What is your contact information?
