@@ -57,7 +57,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
     try {
       // console.log("data", data);
 
-      window.location.href = "/configurator/confirmed";
+      window.location.href = "/configure/confirmed";
     } catch (error) {
       console.log(error);
     }

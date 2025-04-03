@@ -30,7 +30,7 @@ const Section1 = () => {
           </div>
           <div className="flex mt-[24px]">
             <Link
-              href={"/configurator"}
+              href={"/configure"}
               className="flex items-center justify-center rounded-[100px] min-w-[110px] max-w-[110px] bg-[#3788F7] text-[14px] font-[400] min-h-[41px] max-h-[41px] text-center hover:opacity-[90%] transition-opacity duration-300 tracking-[.5px] text-white"
             >
               Order Now
