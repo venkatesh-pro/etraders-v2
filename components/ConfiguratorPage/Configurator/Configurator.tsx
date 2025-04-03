@@ -291,6 +291,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
     configuratorData.chooseYourLayoutFor25,
     configuratorData.bathroom,
     configuratorData,
+    activeTab,
   ]);
 
   useEffect(() => {
