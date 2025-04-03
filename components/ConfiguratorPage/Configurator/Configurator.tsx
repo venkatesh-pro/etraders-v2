@@ -2023,7 +2023,12 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               {activeTab === "cash" ? "Est. Price" : "Est. Lease Payment"}
             </p>
             <p className="text-[14px] font-[400]  text-silver">
-              {formatNumberToCurrency(totalPrice)}
+              {/* {formatNumberToCurrency(totalPrice)} */}
+              {`${
+                activeTab === "cash"
+                  ? formatNumberToCurrency(totalPrice)
+                  : `${formatNumberToCurrency(totalPrice)}/wk`
+              }`}
             </p>
           </div>
           <div className="mt-[40px] flex items-center justify-between">
@@ -2031,7 +2036,12 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               {activeTab === "cash" ? "Est. Price" : "Est. Lease Payment"}
             </p>
             <p className="text-[24px] font-[450]">
-              {formatNumberToCurrency(totalPrice)}
+              {/* {formatNumberToCurrency(totalPrice)} */}
+              {`${
+                activeTab === "cash"
+                  ? formatNumberToCurrency(totalPrice)
+                  : `${formatNumberToCurrency(totalPrice)}/wk`
+              }`}
             </p>
           </div>
           <div className="mb-[100px] ">
