@@ -45,9 +45,18 @@ export const formatNumberToCurrency = (price: number) => {
 //   }
 // };
 
+type PricedItem = {
+  isSelected: boolean;
+  price?: number;
+  lease?: {
+    weekly: {
+      price: number;
+    };
+  };
+};
 export const calculateTotalPrice = (
   configuratorData: ConfiguratorData,
-  activeTab: "cash" | "lease"
+  activeTab: TabState
 ) => {
   let totalPrice = 0;
 
@@ -55,7 +64,7 @@ export const calculateTotalPrice = (
     return 0;
   }
 
-  const processArray = (items: any[]) => {
+  const processArray = (items: PricedItem[]) => {
     items
       .filter(
         (item) =>
@@ -79,7 +88,8 @@ export const calculateTotalPrice = (
 
     if (key === "chooseYourFinish") {
       // Handle nested cash/lease structure
-      processArray(activeTab === "cash" ? value.cash : value.lease);
+      const FinishValue = value as ConfiguratorData["chooseYourFinish"];
+      processArray(activeTab === "cash" ? FinishValue.cash : FinishValue.lease);
     } else if (
       key === "chooseYourLayoutFor16" ||
       key === "chooseYourLayoutFor25"
@@ -92,12 +102,12 @@ export const calculateTotalPrice = (
         selectedModel?.name === "Space One" &&
         key === "chooseYourLayoutFor16"
       ) {
-        processArray(value);
+        processArray(value as PricedItem[]);
       } else if (
         selectedModel?.name === "Space One Plus" &&
         key === "chooseYourLayoutFor25"
       ) {
-        processArray(value);
+        processArray(value as PricedItem[]);
       }
     } else if (Array.isArray(value)) {
       processArray(value);

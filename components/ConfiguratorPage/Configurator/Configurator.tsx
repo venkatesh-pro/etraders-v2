@@ -1237,14 +1237,15 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                   {d.price > 0 && (
                     <p className="">
                       <span className="text-[14px]">
-                        {/* {d.price > 0 && formatNumberToCurrency(d.price)} */}
-
                         {activeTab === "cash"
                           ? d.price > 0 && formatNumberToCurrency(d.price)
-                          : `+ ${
-                              d?.lease?.weekly?.price > 0 &&
-                              formatNumberToCurrency(d.lease.weekly.price)
-                            }/wk`}
+                          : d.lease &&
+                            d.lease.weekly &&
+                            d.lease.weekly.price > 0
+                          ? `+ ${formatNumberToCurrency(
+                              d.lease.weekly.price
+                            )}/wk`
+                          : ""}
                       </span>
                     </p>
                   )}
@@ -1489,7 +1490,9 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                         {activeTab === "cash"
                           ? d.price > 0 && formatNumberToCurrency(d.price)
                           : `+ ${
-                              d?.lease?.weekly?.price > 0 &&
+                              d.lease &&
+                              d.lease.weekly &&
+                              d.lease.weekly.price > 0 &&
                               formatNumberToCurrency(d.lease.weekly.price)
                             }/wk`}
                       </span>
@@ -1690,9 +1693,12 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                         {`${
                           activeTab === "cash"
                             ? formatNumberToCurrency(d.price)
-                            : `${formatNumberToCurrency(
-                                d.lease?.weekly.price
-                              )}/wk`
+                            : `${
+                                d.lease &&
+                                d.lease.weekly &&
+                                d.lease.weekly.price > 0 &&
+                                formatNumberToCurrency(d.lease?.weekly.price)
+                              }/wk`
                         }`}
                       </p>
                     </div>
@@ -1835,9 +1841,12 @@ const Configurator: React.FC<ConfiguratorProps> = ({
                           {`${
                             activeTab === "cash"
                               ? formatNumberToCurrency(d.price)
-                              : `${formatNumberToCurrency(
-                                  d.lease?.weekly.price
-                                )}/wk`
+                              : `${
+                                  d.lease &&
+                                  d.lease.weekly &&
+                                  d.lease.weekly.price > 0 &&
+                                  formatNumberToCurrency(d.lease?.weekly.price)
+                                }/wk`
                           }`}
                         </p>
                       </div>
