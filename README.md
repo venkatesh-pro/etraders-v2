@@ -4,5 +4,14 @@
 
 6. gsap scroll is not working for lease
 
+Est. Lease Payment
+
+$395
+
+Est. Lease Payment
+
+$395 to wk
+
+
 
 <!-- clear selected for everyting to fix the summary _Interior Upgrades_ & for summary will also be fixed -->
