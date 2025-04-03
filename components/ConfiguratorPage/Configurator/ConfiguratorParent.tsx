@@ -371,6 +371,10 @@ const ConfiguratorParent = () => {
     setTotalPrice(totalPrice);
   }, [configuratorData, activeTab]);
 
+  // reset the configuratorData state,when the user change the tab
+  useEffect(() => {
+    setConfiguratorData(data);
+  }, [activeTab]);
   return (
     <>
       {/* {!isMobile && <ConfiguratorNavbar />} */}
