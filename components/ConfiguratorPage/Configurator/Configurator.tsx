@@ -80,249 +80,21 @@ const Configurator: React.FC<ConfiguratorProps> = ({
     });
   };
 
-  // useGSAP(() => {
-  //   gsap.registerPlugin(ScrollTrigger);
-  //   ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-
-  //   const tl = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: "#section3",
-  //       start: "top center",
-  //       end: "bottom-=25% center",
-  //       scrub: true,
-  //       // markers: true,
-  //       scroller: ".left-scroll-area",
-  //       onEnter: () => {
-  //         console.log("Entered section3", currentModel);
-
-  //         let selectedLayout;
-  //         if (currentModel === "Space One") {
-  //           selectedLayout = configuratorData.chooseYourLayoutFor16.find(
-  //             (layout) => layout.isSelected
-  //           );
-  //         } else {
-  //           selectedLayout = configuratorData.chooseYourLayoutFor25.find(
-  //             (layout) => layout.isSelected
-  //           );
-  //         }
-  //         console.log({ selectedLayout });
-
-  //         // console.log({ selectedLayout });
-
-  //         // setSliderImages(generateSliderImagesForInterior());
-  //         fadeOutImages(() => {
-  //           setSliderImages(
-  //             generateSliderImagesForInterior(selectedLayout!.image)
-  //           );
-  //           fadeInImages();
-  //         });
-  //       },
-  //       onLeave: () => {
-  //         console.log("Left section3");
-  //         // setIsImageChangeScroll((prev: boolean) => !prev);
-
-  //         fadeOutImages(() => {
-  //           setIsImageChangeScroll((prev: boolean) => !prev);
-  //           // If this causes a new image set, fade them in after
-  //           fadeInImages();
-  //         });
-  //       },
-  //       onEnterBack: () => {
-  //         console.log("Re-entering section3 from below");
-  //         // setSliderImages([
-  //         //   "/ConfiguratorImages/INTERIOR COMPRESSED 16:25/16-open.jpg",
-  //         //   "/ConfiguratorImages/INTERIOR COMPRESSED 16:25/16-wardorbe.jpg",
-  //         // ]);
-
-  //         // setSliderImages(generateSliderImagesForInterior());
-
-  //         // const selectedLayout = configuratorData.chooseYourLayoutFor16.find(
-  //         //   (layout) => layout.isSelected
-  //         // );
-  //         let selectedLayout;
-  //         if (currentModel === "Space One") {
-  //           selectedLayout = configuratorData.chooseYourLayoutFor16.find(
-  //             (layout) => layout.isSelected
-  //           );
-  //         } else {
-  //           selectedLayout = configuratorData.chooseYourLayoutFor25.find(
-  //             (layout) => layout.isSelected
-  //           );
-  //         }
-  //         // console.log({ selectedLayout });
-
-  //         fadeOutImages(() => {
-  //           setSliderImages(
-  //             generateSliderImagesForInterior(selectedLayout!.image)
-  //           );
-
-  //           fadeInImages();
-  //         });
-  //       },
-  //       onLeaveBack: () => {
-  //         console.log("Leaving section3 from above");
-
-  //         // setIsImageChangeScroll((prev: boolean) => {
-  //         //   console.log({ prev, currentModel, isMirrored });
-  //         //   return !prev;
-  //         // });
-
-  //         fadeOutImages(() => {
-  //           setIsImageChangeScroll((prev: boolean) => {
-  //             console.log({ prev, currentModel, isMirrored });
-  //             return !prev;
-  //           });
-  //           fadeInImages();
-  //         });
-  //       },
-  //     },
-  //   });
-
-  //   const tl2 = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: "#section5tl2",
-  //       // start: "top+=50% center+=45%",
-  //       // end: "bottom bottom-=10%",
-  //       // start: "top+=50% bottom-=10%",
-  //       // end: "bottom+10% bottom-=5%",
-  //       start: "top 96%",
-  //       end: "bottom 20%",
-  //       once: true,
-  //       // markers: true,
-  //       scroller: ".left-scroll-area",
-  //       onEnter: () => {
-  //         const tl = gsap.timeline();
-
-  //         // Show loading spinner for 0.5s
-  //         tl.to("#section5tl2-loader-container", {
-  //           display: "block",
-  //         });
-  //         tl.to("#loading-spinner-1", {
-  //           opacity: 1,
-  //           duration: 0.5,
-  //         });
-  //         tl.to("#loading-spinner-1", {
-  //           opacity: 0,
-  //           display: "none",
-  //         });
-  //         tl.to("#section5", {
-  //           display: "block",
-  //           opacity: 1,
-  //           duration: 0.5,
-  //           // delay: 0.5,
-  //         }); // Fade in section
-  //       },
-  //     },
-  //   });
-
-  //   const tl3 = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: "#section5tl3-trigger",
-  //       // start: "center-=30% center",
-  //       // end: "bottom bottom",
-  //       start: "top 80%",
-  //       end: "bottom 20%",
-  //       once: true,
-  //       // markers: true,
-  //       scroller: ".left-scroll-area",
-  //       onEnter: () => {
-  //         // alert("hi");
-  //         const tl = gsap.timeline();
-
-  //         tl.to("#section5tl3-loader-container", {
-  //           display: "block",
-  //         });
-  //         tl.to("#loading-spinner-2", {
-  //           opacity: 1,
-  //           duration: 0.5,
-  //         });
-  //         tl.to("#loading-spinner-2", {
-  //           opacity: 0,
-  //           display: "none",
-  //         });
-
-  //         tl.to("#section5tl3", {
-  //           display: "block",
-  //           opacity: 1,
-  //           duration: 0.5,
-  //           // delay: 5.5,
-  //         });
-  //       },
-  //     },
-  //   });
-  //   // ScrollTrigger.create({
-  //   //   trigger: "#section5tl3-trigger", // The element before tl3
-  //   //   start: "top 96%",
-  //   //   end: "bottom 20%",
-  //   //   once: true, // Ensures it runs only once
-  //   //   markers: true,
-  //   //   onEnter: () => {
-  //   //     // Show loading animation
-  //   //     alert("hi");
-  //   //     gsap.to("#loading-spinner-2", {
-  //   //       opacity: 1,
-  //   //       duration: 1,
-  //   //       onComplete: () => {
-  //   //         // Hide loading and reveal tl3
-  //   //         gsap.set("#loading-spinner-2", {
-  //   //           display: "none",
-  //   //           pointerEvents: "none",
-  //   //         });
-  //   //         gsap.set("#section5tl3", { pointerEvents: "auto" });
-
-  //   //         // Start tl3 animation
-  //   //         let tl3 = gsap.timeline();
-  //   //         tl3.to("#section5tl3", { opacity: 1, duration: 1 }); // Fade in tl3
-  //   //         // .to("#tl3-content", { y: 0, opacity: 1, duration: 1 }); // Animate content
-  //   //       },
-  //   //     });
-  //   //   },
-  //   // });
-  //   return () => {
-  //     tl.kill();
-  //     tl2.kill();
-  //     tl3.kill();
-  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  //   };
-  // }, [
-  //   currentModel,
-  //   isMirrored,
-  //   configuratorData.chooseYourLayoutFor16,
-  //   configuratorData.chooseYourLayoutFor25,
-  //   configuratorData.bathroom,
-  //   configuratorData,
-  //   activeTab,
-  // ]);
-
-  // reset the loading animation when the tab changes
   useGSAP(() => {
-    // Reset initial states for all affected elements
-    gsap.set("#section5tl2-loader-container", { display: "none" });
-    gsap.set("#loading-spinner-1", { opacity: 0 });
-    gsap.set("#section5", { display: "none", opacity: 0 });
-
-    gsap.set("#section5tl3-loader-container", { display: "none" });
-    gsap.set("#loading-spinner-2", { opacity: 0 });
-    gsap.set("#section5tl3", { display: "none", opacity: 0 });
-  }, [activeTab]);
-
-  useGSAP(() => {
-    // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
-
-    // Kill all existing ScrollTriggers to avoid duplicates
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
-    // Define tl (section3 timeline) - unchanged, as it should still scrub
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#section3",
         start: "top center",
         end: "bottom-=25% center",
         scrub: true,
+        // markers: true,
         scroller: ".left-scroll-area",
         onEnter: () => {
           console.log("Entered section3", currentModel);
+
           let selectedLayout;
           if (currentModel === "Space One") {
             selectedLayout = configuratorData.chooseYourLayoutFor16.find(
@@ -333,6 +105,11 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               (layout) => layout.isSelected
             );
           }
+          console.log({ selectedLayout });
+
+          // console.log({ selectedLayout });
+
+          // setSliderImages(generateSliderImagesForInterior());
           fadeOutImages(() => {
             setSliderImages(
               generateSliderImagesForInterior(selectedLayout!.image)
@@ -342,13 +119,26 @@ const Configurator: React.FC<ConfiguratorProps> = ({
         },
         onLeave: () => {
           console.log("Left section3");
+          // setIsImageChangeScroll((prev: boolean) => !prev);
+
           fadeOutImages(() => {
-            setIsImageChangeScroll((prev) => !prev);
+            setIsImageChangeScroll((prev: boolean) => !prev);
+            // If this causes a new image set, fade them in after
             fadeInImages();
           });
         },
         onEnterBack: () => {
           console.log("Re-entering section3 from below");
+          // setSliderImages([
+          //   "/ConfiguratorImages/INTERIOR COMPRESSED 16:25/16-open.jpg",
+          //   "/ConfiguratorImages/INTERIOR COMPRESSED 16:25/16-wardorbe.jpg",
+          // ]);
+
+          // setSliderImages(generateSliderImagesForInterior());
+
+          // const selectedLayout = configuratorData.chooseYourLayoutFor16.find(
+          //   (layout) => layout.isSelected
+          // );
           let selectedLayout;
           if (currentModel === "Space One") {
             selectedLayout = configuratorData.chooseYourLayoutFor16.find(
@@ -359,17 +149,26 @@ const Configurator: React.FC<ConfiguratorProps> = ({
               (layout) => layout.isSelected
             );
           }
+          // console.log({ selectedLayout });
+
           fadeOutImages(() => {
             setSliderImages(
               generateSliderImagesForInterior(selectedLayout!.image)
             );
+
             fadeInImages();
           });
         },
         onLeaveBack: () => {
           console.log("Leaving section3 from above");
+
+          // setIsImageChangeScroll((prev: boolean) => {
+          //   console.log({ prev, currentModel, isMirrored });
+          //   return !prev;
+          // });
+
           fadeOutImages(() => {
-            setIsImageChangeScroll((prev) => {
+            setIsImageChangeScroll((prev: boolean) => {
               console.log({ prev, currentModel, isMirrored });
               return !prev;
             });
@@ -379,64 +178,106 @@ const Configurator: React.FC<ConfiguratorProps> = ({
       },
     });
 
-    // Define tl2 (section5tl2 timeline)
     const tl2 = gsap.timeline({
       scrollTrigger: {
         trigger: "#section5tl2",
+        // start: "top+=50% center+=45%",
+        // end: "bottom bottom-=10%",
+        // start: "top+=50% bottom-=10%",
+        // end: "bottom+10% bottom-=5%",
         start: "top 96%",
         end: "bottom 20%",
+        once: true,
+        // markers: true,
         scroller: ".left-scroll-area",
-        once: true, // Only play once per page load
         onEnter: () => {
-          console.log("tl2 onEnter triggered", activeTab);
           const tl = gsap.timeline();
-          tl.to(
-            "#section5tl2-loader-container",
-            { display: "block", duration: 0 },
-            0
-          )
-            .to("#loading-spinner-1", { opacity: 1, duration: 0.5 }, 0)
-            .to("#loading-spinner-1", { opacity: 0, duration: 0.5 }, 0.5)
-            .to(
-              "#section5",
-              { display: "block", opacity: 1, duration: 0.5 },
-              1
-            );
+
+          // Show loading spinner for 0.5s
+          tl.to("#section5tl2-loader-container", {
+            display: "block",
+          });
+          tl.to("#loading-spinner-1", {
+            opacity: 1,
+            duration: 0.5,
+          });
+          tl.to("#loading-spinner-1", {
+            opacity: 0,
+            display: "none",
+          });
+          tl.to("#section5", {
+            display: "block",
+            opacity: 1,
+            duration: 0.5,
+            // delay: 0.5,
+          }); // Fade in section
         },
       },
     });
 
-    // Define tl3 (section5tl3 timeline)
     const tl3 = gsap.timeline({
       scrollTrigger: {
         trigger: "#section5tl3-trigger",
+        // start: "center-=30% center",
+        // end: "bottom bottom",
         start: "top 80%",
         end: "bottom 20%",
+        once: true,
+        // markers: true,
         scroller: ".left-scroll-area",
-        once: true, // Only play once per page load
         onEnter: () => {
-          console.log("tl3 onEnter triggered", activeTab);
+          // alert("hi");
           const tl = gsap.timeline();
-          tl.to(
-            "#section5tl3-loader-container",
-            { display: "block", duration: 0 },
-            0
-          )
-            .to("#loading-spinner-2", { opacity: 1, duration: 0.5 }, 0)
-            .to("#loading-spinner-2", { opacity: 0, duration: 0.5 }, 0.5)
-            .to(
-              "#section5tl3",
-              { display: "block", opacity: 1, duration: 0.5 },
-              1
-            );
+
+          tl.to("#section5tl3-loader-container", {
+            display: "block",
+          });
+          tl.to("#loading-spinner-2", {
+            opacity: 1,
+            duration: 0.5,
+          });
+          tl.to("#loading-spinner-2", {
+            opacity: 0,
+            display: "none",
+          });
+
+          tl.to("#section5tl3", {
+            display: "block",
+            opacity: 1,
+            duration: 0.5,
+            // delay: 5.5,
+          });
         },
       },
     });
+    // ScrollTrigger.create({
+    //   trigger: "#section5tl3-trigger", // The element before tl3
+    //   start: "top 96%",
+    //   end: "bottom 20%",
+    //   once: true, // Ensures it runs only once
+    //   markers: true,
+    //   onEnter: () => {
+    //     // Show loading animation
+    //     alert("hi");
+    //     gsap.to("#loading-spinner-2", {
+    //       opacity: 1,
+    //       duration: 1,
+    //       onComplete: () => {
+    //         // Hide loading and reveal tl3
+    //         gsap.set("#loading-spinner-2", {
+    //           display: "none",
+    //           pointerEvents: "none",
+    //         });
+    //         gsap.set("#section5tl3", { pointerEvents: "auto" });
 
-    // Refresh ScrollTrigger after setup
-    ScrollTrigger.refresh();
-
-    // Cleanup function - resets everything when dependencies change
+    //         // Start tl3 animation
+    //         let tl3 = gsap.timeline();
+    //         tl3.to("#section5tl3", { opacity: 1, duration: 1 }); // Fade in tl3
+    //         // .to("#tl3-content", { y: 0, opacity: 1, duration: 1 }); // Animate content
+    //       },
+    //     });
+    //   },
+    // });
     return () => {
       tl.kill();
       tl2.kill();
@@ -452,6 +293,165 @@ const Configurator: React.FC<ConfiguratorProps> = ({
     configuratorData,
     activeTab,
   ]);
+
+  // reset the loading animation when the tab changes
+  // useGSAP(() => {
+  //   // Reset initial states for all affected elements
+  //   gsap.set("#section5tl2-loader-container", { display: "none" });
+  //   gsap.set("#loading-spinner-1", { opacity: 0 });
+  //   gsap.set("#section5", { display: "none", opacity: 0 });
+
+  //   gsap.set("#section5tl3-loader-container", { display: "none" });
+  //   gsap.set("#loading-spinner-2", { opacity: 0 });
+  //   gsap.set("#section5tl3", { display: "none", opacity: 0 });
+  // }, [activeTab]);
+
+  // useGSAP(() => {
+  //   // Register ScrollTrigger plugin
+  //   gsap.registerPlugin(ScrollTrigger);
+
+  //   // Kill all existing ScrollTriggers to avoid duplicates
+  //   ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+
+  //   // Define tl (section3 timeline) - unchanged, as it should still scrub
+  //   const tl = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: "#section3",
+  //       start: "top center",
+  //       end: "bottom-=25% center",
+  //       scrub: true,
+  //       scroller: ".left-scroll-area",
+  //       onEnter: () => {
+  //         console.log("Entered section3", currentModel);
+  //         let selectedLayout;
+  //         if (currentModel === "Space One") {
+  //           selectedLayout = configuratorData.chooseYourLayoutFor16.find(
+  //             (layout) => layout.isSelected
+  //           );
+  //         } else {
+  //           selectedLayout = configuratorData.chooseYourLayoutFor25.find(
+  //             (layout) => layout.isSelected
+  //           );
+  //         }
+  //         fadeOutImages(() => {
+  //           setSliderImages(
+  //             generateSliderImagesForInterior(selectedLayout!.image)
+  //           );
+  //           fadeInImages();
+  //         });
+  //       },
+  //       onLeave: () => {
+  //         console.log("Left section3");
+  //         fadeOutImages(() => {
+  //           setIsImageChangeScroll((prev) => !prev);
+  //           fadeInImages();
+  //         });
+  //       },
+  //       onEnterBack: () => {
+  //         console.log("Re-entering section3 from below");
+  //         let selectedLayout;
+  //         if (currentModel === "Space One") {
+  //           selectedLayout = configuratorData.chooseYourLayoutFor16.find(
+  //             (layout) => layout.isSelected
+  //           );
+  //         } else {
+  //           selectedLayout = configuratorData.chooseYourLayoutFor25.find(
+  //             (layout) => layout.isSelected
+  //           );
+  //         }
+  //         fadeOutImages(() => {
+  //           setSliderImages(
+  //             generateSliderImagesForInterior(selectedLayout!.image)
+  //           );
+  //           fadeInImages();
+  //         });
+  //       },
+  //       onLeaveBack: () => {
+  //         console.log("Leaving section3 from above");
+  //         fadeOutImages(() => {
+  //           setIsImageChangeScroll((prev) => {
+  //             console.log({ prev, currentModel, isMirrored });
+  //             return !prev;
+  //           });
+  //           fadeInImages();
+  //         });
+  //       },
+  //     },
+  //   });
+
+  //   // Define tl2 (section5tl2 timeline)
+  //   const tl2 = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: "#section5tl2",
+  //       start: "top 96%",
+  //       end: "bottom 20%",
+  //       scroller: ".left-scroll-area",
+  //       once: true, // Only play once per page load
+  //       onEnter: () => {
+  //         console.log("tl2 onEnter triggered", activeTab);
+  //         const tl = gsap.timeline();
+  //         tl.to(
+  //           "#section5tl2-loader-container",
+  //           { display: "block", duration: 0 },
+  //           0
+  //         )
+  //           .to("#loading-spinner-1", { opacity: 1, duration: 0.5 }, 0)
+  //           .to("#loading-spinner-1", { opacity: 0, duration: 0.5 }, 0.5)
+  //           .to(
+  //             "#section5",
+  //             { display: "block", opacity: 1, duration: 0.5 },
+  //             1
+  //           );
+  //       },
+  //     },
+  //   });
+
+  //   // Define tl3 (section5tl3 timeline)
+  //   const tl3 = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: "#section5tl3-trigger",
+  //       start: "top 80%",
+  //       end: "bottom 20%",
+  //       scroller: ".left-scroll-area",
+  //       once: true, // Only play once per page load
+  //       onEnter: () => {
+  //         console.log("tl3 onEnter triggered", activeTab);
+  //         const tl = gsap.timeline();
+  //         tl.to(
+  //           "#section5tl3-loader-container",
+  //           { display: "block", duration: 0 },
+  //           0
+  //         )
+  //           .to("#loading-spinner-2", { opacity: 1, duration: 0.5 }, 0)
+  //           .to("#loading-spinner-2", { opacity: 0, duration: 0.5 }, 0.5)
+  //           .to(
+  //             "#section5tl3",
+  //             { display: "block", opacity: 1, duration: 0.5 },
+  //             1
+  //           );
+  //       },
+  //     },
+  //   });
+
+  //   // Refresh ScrollTrigger after setup
+  //   ScrollTrigger.refresh();
+
+  //   // Cleanup function - resets everything when dependencies change
+  //   return () => {
+  //     tl.kill();
+  //     tl2.kill();
+  //     tl3.kill();
+  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   };
+  // }, [
+  //   currentModel,
+  //   isMirrored,
+  //   configuratorData.chooseYourLayoutFor16,
+  //   configuratorData.chooseYourLayoutFor25,
+  //   configuratorData.bathroom,
+  //   configuratorData,
+  //   activeTab,
+  // ]);
 
   useEffect(() => {
     setTimeout(() => {
