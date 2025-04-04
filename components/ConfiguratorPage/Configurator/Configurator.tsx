@@ -80,6 +80,18 @@ const Configurator: React.FC<ConfiguratorProps> = ({
     });
   };
 
+  // reset the loading animation when the tab changes
+  useGSAP(() => {
+    // Reset initial states for all affected elements
+    gsap.set("#section5tl2-loader-container", { display: "none" });
+    gsap.set("#loading-spinner-1", { opacity: 1, display: "inline-block" });
+    gsap.set("#section5", { display: "none", opacity: 0 });
+
+    gsap.set("#section5tl3-loader-container", { display: "none" });
+    gsap.set("#loading-spinner-2", { opacity: 1, display: "inline-block" });
+    gsap.set("#section5tl3", { display: "none", opacity: 0 });
+  }, [activeTab]);
+
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
@@ -290,7 +302,7 @@ const Configurator: React.FC<ConfiguratorProps> = ({
     configuratorData.chooseYourLayoutFor16,
     configuratorData.chooseYourLayoutFor25,
     configuratorData.bathroom,
-    configuratorData,
+    // configuratorData,
     activeTab,
   ]);
 
