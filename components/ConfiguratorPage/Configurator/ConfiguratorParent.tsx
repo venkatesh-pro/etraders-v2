@@ -430,7 +430,7 @@ const ConfiguratorParent = () => {
                 totalPrice={totalPrice}
               />
             </div>
-            <ScrollPricing totalPrice={totalPrice} />
+            <ScrollPricing totalPrice={totalPrice} activeTab={activeTab} />
           </div>
         </div>
 

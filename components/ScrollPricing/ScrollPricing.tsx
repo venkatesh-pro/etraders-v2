@@ -1,7 +1,16 @@
 import { formatNumberToCurrency } from "@/utils/functions";
 import { useState, useEffect } from "react";
+import { TabState } from "../ConfiguratorPage/Configurator/ConfiguratorParent";
+// import { useGSAP } from "@gsap/react";
+// import { gsap } from "gsap/dist/gsap";
 
-const ScrollPricing = ({ totalPrice }: { totalPrice: number }) => {
+const ScrollPricing = ({
+  totalPrice,
+  activeTab,
+}: {
+  totalPrice: number;
+  activeTab: TabState;
+}) => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
@@ -26,6 +35,27 @@ const ScrollPricing = ({ totalPrice }: { totalPrice: number }) => {
     };
   }, []);
 
+  // // gsap animation when activeTab changes
+  // const scrollPricingRef = useRef<HTMLDivElement>(null);
+
+  // useGSAP(() => {
+  //   if (scrollPricingRef.current) {
+  //     // Fade out, then fade in
+  //     gsap
+  //       .timeline()
+  //       .to(scrollPricingRef.current, {
+  //         opacity: 0,
+  //         duration: 0.3,
+  //         ease: "power2.inOut",
+  //       })
+  //       .to(scrollPricingRef.current, {
+  //         opacity: 1,
+  //         duration: 0.3,
+  //         ease: "power2.inOut",
+  //       });
+  //   }
+  // }, [activeTab]); // Trigger animation when activeTab changes
+
   return (
     <div
       className={`w-full desktop:w-[438px] desktopG:w-full z-[10001] transition-opacity duration-500 ${
@@ -36,7 +66,12 @@ const ScrollPricing = ({ totalPrice }: { totalPrice: number }) => {
         <div className="flex justify-between">
           <div>
             <p className="text-[24px] font-[450] text-silver">
-              {formatNumberToCurrency(totalPrice)}
+              {/* {formatNumberToCurrency(totalPrice)} */}
+              {`${
+                activeTab === "cash"
+                  ? formatNumberToCurrency(totalPrice)
+                  : `${formatNumberToCurrency(totalPrice)}/wk`
+              }`}
             </p>
             <p className="text-[14px] font-[400] text-light-silver">
               Est. Price
