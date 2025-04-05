@@ -182,7 +182,7 @@ const Navbar = ({
         >
           <img
             src="/images/hamburger.svg"
-            className="w-[18px]"
+            className={`w-[18px] ${isPolicyAndTerms && "invert"}`}
             alt="Open Menu"
           />
         </div>
