@@ -41,6 +41,7 @@ export default function RootLayout({
       lang="en"
       style={{
         scrollBehavior: "smooth",
+        scrollPaddingTop: "56px",
       }}
     >
       <body className={`${geistSans.className} antialiased`}>
