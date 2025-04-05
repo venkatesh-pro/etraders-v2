@@ -37,7 +37,7 @@ const ConfiguratorSubmitNavbar = () => {
       <div className="flex items-center text-center justify-between w-full">
         <div className="flex items-center text-center ">
           <Link href={"/"}>
-            <img src="/logo.svg" className="w-[70px]" alt="Logo" />
+            <img src="/logo.svg" className="w-[70.33px]" alt="Logo" />
           </Link>
         </div>
         <div className="flex items-center">
