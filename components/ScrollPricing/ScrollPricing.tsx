@@ -82,7 +82,7 @@ const ScrollPricing = ({
             </p>
           </div>
         </div>
-        <div>
+        <div className=" flex items-center">
           <button>
             <img src="/images/chatbox.svg" alt="image" />
           </button>
