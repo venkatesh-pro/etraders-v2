@@ -1,19 +1,27 @@
 "use client";
-import React, { useState } from "react";
-import { termsData } from "../termsData";
-import { privacyPolicyData } from "../privacyPolicyData";
+import React, { useEffect, useState } from "react";
+import { TermsData, termsData } from "../termsData";
+import { PrivacyPolicyData, privacyPolicyData } from "../privacyPolicyData";
 import TermsContents from "../TermsContents";
 import PrivacyPolicyContents from "../PrivacyPolicyContents";
+import { pageType } from "../pageType";
 
-const PrivacyPolicyAndTerms = ({ page }) => {
+const PrivacyPolicyAndTerms = ({ page }: { page: pageType }) => {
+  type DataState =
+    | { type: "terms"; data: TermsData }
+    | { type: "privacy"; data: PrivacyPolicyData }
+    | undefined;
   const [privacyPolicyAndTermsDataState, setPrivacyPolicyAndTermsDataState] =
-    useState();
+    useState<DataState>();
 
-  useState(() => {
+  useEffect(() => {
     if (page === "terms-of-use") {
-      setPrivacyPolicyAndTermsDataState(termsData);
+      setPrivacyPolicyAndTermsDataState({ type: "terms", data: termsData });
     } else {
-      setPrivacyPolicyAndTermsDataState(privacyPolicyData);
+      setPrivacyPolicyAndTermsDataState({
+        type: "privacy",
+        data: privacyPolicyData,
+      });
     }
   }, [page]);
 
@@ -35,12 +43,16 @@ const PrivacyPolicyAndTerms = ({ page }) => {
         <hr className="mt-[60px] border-[1px] border-[#e1e1e1]" />
         <div>
           {page === "terms-of-use" &&
-            privacyPolicyAndTermsDataState?.map((term, i) => {
+            privacyPolicyAndTermsDataState?.type === "terms" &&
+            privacyPolicyAndTermsDataState?.data.map((term, i) => {
               return <TermsContents key={i} term={term} />;
             })}
           {page === "privacy-policy" &&
-            privacyPolicyAndTermsDataState?.map((privacyPolicy, i) => {
-              return <PrivacyPolicyContents key={i} privacyPolicy={privacyPolicy} />;
+            privacyPolicyAndTermsDataState?.type === "privacy" &&
+            privacyPolicyAndTermsDataState?.data.map((privacyPolicy, i) => {
+              return (
+                <PrivacyPolicyContents key={i} privacyPolicy={privacyPolicy} />
+              );
             })}
         </div>
       </div>

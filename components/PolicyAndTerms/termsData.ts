@@ -1,4 +1,13 @@
-export const termsData = [
+type ContentItem = string;
+
+export type TermsSection = {
+  title: string;
+  content: ContentItem[];
+};
+
+export type TermsData = TermsSection[];
+
+export const termsData: TermsData = [
   {
     title: "Ownership of Site; Agreement to Terms of Use",
     content: [

@@ -1,4 +1,23 @@
-export const privacyPolicyData = [
+type ParagraphContent = {
+  type: "p";
+  text: string;
+};
+
+// Define the type for an unordered list content item
+type ListContent = {
+  type: "ul";
+  items: string[];
+};
+type ContentItem = ParagraphContent | ListContent;
+
+export type PrivacyPolicySection = {
+  title: string;
+  content: ContentItem[];
+};
+
+export type PrivacyPolicyData = PrivacyPolicySection[];
+
+export const privacyPolicyData: PrivacyPolicyData = [
   {
     title: "Personal Data at Space",
     content: [

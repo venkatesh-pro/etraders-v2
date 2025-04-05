@@ -1,6 +1,7 @@
 import React from "react";
+import { TermsSection } from "./termsData";
 
-const TermsContents = ({ term }) => {
+const TermsContents = ({ term }: { term: TermsSection }) => {
   return (
     <div className="mt-[60px]">
       <h2 className="text-[24px] font-[400]">{term.title}</h2>

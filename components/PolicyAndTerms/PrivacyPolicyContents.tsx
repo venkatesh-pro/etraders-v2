@@ -1,6 +1,11 @@
 import React from "react";
+import { PrivacyPolicySection } from "./privacyPolicyData";
 
-const PrivacyPolicyContents = ({ privacyPolicy }) => {
+const PrivacyPolicyContents = ({
+  privacyPolicy,
+}: {
+  privacyPolicy: PrivacyPolicySection;
+}) => {
   return (
     <div className="mt-[60px]">
       <h2 className="text-[24px] font-[400]">{privacyPolicy.title}</h2>
