@@ -126,6 +126,7 @@ const Navbar = ({
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <>
       <div
@@ -157,8 +158,8 @@ const Navbar = ({
               style={{
                 marginLeft: index === 0 ? "0px" : "40px",
               }}
-              className={`text-[12px] font-[400] transition-colors duration-300 tracking-letterSpacing1px hover:${
-                isPolicyAndTerms ? "" : "text-white"
+              className={`text-[12px] font-[400] transition-colors duration-300 tracking-letterSpacing1px ${
+                isPolicyAndTerms ? "hover:text-[#000000]" : "hover:text-white"
               } ${
                 isPolicyAndTerms
                   ? activeSection === id
@@ -166,7 +167,7 @@ const Navbar = ({
                     : "text-[#4f4749]"
                   : activeSection === id
                   ? "text-white"
-                  : "text-[#E1E1E1]"
+                  : "text-[#e1e1e1]"
               }`}
             >
               {label}
