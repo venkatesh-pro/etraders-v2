@@ -64,12 +64,12 @@ const ScrollPricing = ({
 
   return (
     <div
-      className={`w-full desktop:w-[438px] desktopG:w-full z-[10001] transition-opacity duration-500 ${
+      className={`w-full desktop:w-[438px]  desktopG:w-full z-[10001] transition-opacity duration-500 ${
         isVisible ? "fixed opacity-100" : "opacity-0 hidden pointer-events-none"
       } fixed bottom-0 left-0 md:sticky md:bottom-0`}
     >
-      <div className="md:mx-[23px] bg-[#D4D4D4]/30 backdrop-blur-2xl h-[91px] rounded-tl-[12px] rounded-tr-[12px] px-[24px] py-[20px]">
-        <div className="flex justify-between">
+      <div className="md:mx-[23px] bg-[#D4D4D4]/30 backdrop-blur-2xl h-[72px] rounded-tl-[12px] rounded-tr-[12px] px-[24px] py-[12px] flex items-center justify-between">
+        <div className="flex justify-between ">
           <div>
             <p
               className="text-[24px] font-[450] text-silver"
@@ -77,15 +77,15 @@ const ScrollPricing = ({
             >
               {displayText}
             </p>
-            <p className="text-[14px] font-[400] text-light-silver">
+            <p className="text-[12px] font-[400] text-light-silver">
               Est. Price
             </p>
           </div>
-          <div>
-            <button>
-              <img src="/images/chatbox.svg" alt="image" />
-            </button>
-          </div>
+        </div>
+        <div>
+          <button>
+            <img src="/images/chatbox.svg" alt="image" />
+          </button>
         </div>
       </div>
     </div>
