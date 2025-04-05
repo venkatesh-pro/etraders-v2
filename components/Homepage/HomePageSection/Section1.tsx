@@ -35,11 +35,8 @@ const Section1 = () => {
             >
               Order Now
             </Link>
-            <button className="hidden md:block rounded-[100px] ml-[16px] min-w-[114px] max-w-[114px] bg-white text-black text-[14px] min-h-[41px] font-[400] max-h-[41px] text-center hover:opacity-[90%] transition-opacity duration-300 tracking-[.5px]">
+            <button className="rounded-[100px] ml-[16px] min-w-[114px] max-w-[114px] bg-white text-black text-[14px] min-h-[41px] font-[400] max-h-[41px] text-center hover:opacity-[90%] transition-opacity duration-300 tracking-[.5px]">
               Learn More
-            </button>
-            <button className="block md:hidden  rounded-[100px] ml-[16px] min-w-[114px] max-w-[114px] bg-white text-black text-[14px] min-h-[41px] font-[400] max-h-[41px] text-center hover:opacity-[90%] transition-opacity duration-300 tracking-[.5px]">
-              Compare
             </button>
           </div>
         </div>
