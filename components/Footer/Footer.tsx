@@ -132,7 +132,7 @@ const Footer = ({
         </Link>
         <Link
           className="text-[12px] block text-[#949192] font-[400] mt-[8px] md:hidden"
-          href={"/terms"}
+          href={"/terms-of-use"}
         >
           Terms of Use
         </Link>
@@ -146,7 +146,7 @@ const Footer = ({
           </Link>
           <Link
             className="text-[12px] text-[#949192] sm:ml-[40px] ml-[20px] font-[400] "
-            href={"/terms"}
+            href={"/terms-of-use"}
           >
             Terms of Use
           </Link>
