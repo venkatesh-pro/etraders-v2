@@ -94,7 +94,7 @@ const Slider: React.FC<SliderProps> = ({ sliderImages }) => {
               )
             }
             onTouchStart={handleButtonTouchStart} // Stop touch propagation
-            className="w-[28px] h-[28px] rounded-[6px] bg-[rgba(212,212,212,0.3)] flex items-center justify-center"
+            className="w-[28px] h-[28px] rounded-[6px] bg-[rgba(212,212,212,0.3)] flex items-center justify-center backdrop-blur-[2xl]"
           >
             <img
               src="/images/left-arrow-small.svg"
@@ -110,7 +110,7 @@ const Slider: React.FC<SliderProps> = ({ sliderImages }) => {
               )
             }
             onTouchStart={handleButtonTouchStart} // Stop touch propagation
-            className="w-[28px] h-[28px] rounded-[6px] bg-[rgba(212,212,212,0.3)] flex items-center justify-center"
+            className="w-[28px] h-[28px] rounded-[6px] bg-[rgba(212,212,212,0.3)] flex items-center justify-center backdrop-blur-2xl"
           >
             <img
               src="/images/left-arrow-small.svg"
