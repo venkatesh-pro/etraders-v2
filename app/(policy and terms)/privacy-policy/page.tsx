@@ -6,9 +6,8 @@ import React from "react";
 const page = () => {
   return (
     <div className="">
-      {/* <NavbarPolicyAndTerms /> */}
       <Navbar isPolicyAndTerms={true} />
-      <PrivacyPolicyAndTerms page={"terms-of-use"} />
+      <PrivacyPolicyAndTerms page={'privacy-policy'}/>
 
       <Footer isPolicyAndTerms={true} />
     </div>

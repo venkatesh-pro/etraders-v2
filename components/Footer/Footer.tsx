@@ -126,7 +126,7 @@ const Footer = ({
         {/* for mobile */}
         <Link
           className="text-[12px] block text-[#949192] font-[400] md:hidden"
-          href={"/"}
+          href={"/privacy-policy"}
         >
           Privacy Policy
         </Link>
@@ -141,7 +141,7 @@ const Footer = ({
         </p>
         {/* for desktop */}
         <div className="hidden md:block ">
-          <Link className="text-[12px]  text-[#949192] font-[400]" href={"/"}>
+          <Link className="text-[12px]  text-[#949192] font-[400]" href={"/privacy-policy"}>
             Privacy Policy
           </Link>
           <Link

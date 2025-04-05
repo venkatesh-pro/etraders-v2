@@ -1,6 +1,6 @@
 import React from "react";
 
-const PolicyAndTermsContents = ({ term }) => {
+const TermsContents = ({ term }) => {
   return (
     <div className="mt-[60px]">
       <h2 className="text-[24px] font-[400]">{term.title}</h2>
@@ -17,4 +17,4 @@ const PolicyAndTermsContents = ({ term }) => {
   );
 };
 
-export default PolicyAndTermsContents;
+export default TermsContents;
