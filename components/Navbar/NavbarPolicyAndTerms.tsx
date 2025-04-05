@@ -11,11 +11,7 @@ const sections = [
   { id: "laundromat", label: "SPACE LAUNDROMAT" },
 ];
 
-const Navbar = ({
-  isPolicyAndTerms = false,
-}: {
-  isPolicyAndTerms?: boolean;
-}) => {
+const NavbarPolicyAndTerms = () => {
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
@@ -134,12 +130,14 @@ const Navbar = ({
           isScrolled ? "bg-[#000000]/30 backdrop-blur-2xl" : "bg-none"
         }  flex md:justify-center justify-between items-center fixed `}
       >
-        <Link href="/" id="logo" className="">
+        <Link
+          href="/"
+          id="logo"
+          className=""
+        >
           <img
             src="/logo.svg"
-            className={`w-[70.33px] invert h-[14px] absolute top-[21px] left-[20px] md:left-[48px] absolute ${
-              isPolicyAndTerms && "invert-0"
-            }`}
+            className="w-[70.33px] invert h-[14px] absolute top-[21px] left-[20px] md:left-[48px] absolute"
             alt="Logo"
           />
         </Link>
@@ -157,16 +155,8 @@ const Navbar = ({
               style={{
                 marginLeft: index === 0 ? "0px" : "40px",
               }}
-              className={`text-[12px] font-[400] transition-colors duration-300 tracking-letterSpacing1px hover:${
-                isPolicyAndTerms ? "" : "text-white"
-              } ${
-                isPolicyAndTerms
-                  ? activeSection === id
-                    ? "text-[#4f4749]" // there will be no activeSection in the terms page
-                    : "text-[#4f4749]"
-                  : activeSection === id
-                  ? "text-white"
-                  : "text-[#E1E1E1]"
+              className={`text-[12px] font-[400] transition-colors duration-300 tracking-letterSpacing1px hover:text-white ${
+                activeSection === id ? "text-white" : "text-[#E1E1E1]"
               }`}
             >
               {label}
@@ -229,4 +219,4 @@ const Navbar = ({
   );
 };
 
-export default Navbar;
+export default NavbarPolicyAndTerms;
