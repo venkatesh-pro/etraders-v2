@@ -83,7 +83,7 @@ const Footer = () => {
           className="text-[12px] block text-[#949192] font-[400] mt-[8px] md:hidden"
           href={"/"}
         >
-          Terms of Service
+          Terms of Use
         </Link>
         <p className="text-[12px] text-[#949192] mt-[8px] font-[400]">
           Space © All Rights Reserved
@@ -97,7 +97,7 @@ const Footer = () => {
             className="text-[12px] text-[#949192] sm:ml-[40px] ml-[20px] font-[400] "
             href={"/"}
           >
-            Terms of Service
+            Terms of Use
           </Link>
         </div>
       </div>
