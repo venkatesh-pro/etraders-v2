@@ -148,7 +148,8 @@ const Navbar = ({
         {/* Desktop Navbar with Active Link Highlighting */}
         <div className="hidden md:flex text-white">
           {sections.map(({ id, label }, index) => (
-            <button
+            <Link
+              href={`/#${id}`}
               key={id}
               onClick={() =>
                 document
@@ -171,7 +172,7 @@ const Navbar = ({
               }`}
             >
               {label}
-            </button>
+            </Link>
           ))}
         </div>
         {/* <div></div> */}
@@ -209,7 +210,8 @@ const Navbar = ({
           className="flex flex-col mx-[20px] mt-[114px]"
         >
           {sections.map(({ id, label }) => (
-            <p
+            <Link
+              href={`/#${id}`}
               key={id}
               onClick={() => {
                 document
@@ -222,7 +224,7 @@ const Navbar = ({
               }`}
             >
               {label}
-            </p>
+            </Link>
           ))}
         </div>
       </div>
