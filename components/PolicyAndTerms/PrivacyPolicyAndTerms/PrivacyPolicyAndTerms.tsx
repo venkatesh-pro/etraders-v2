@@ -27,7 +27,7 @@ const PrivacyPolicyAndTerms = ({ page }: { page: pageType }) => {
 
   return (
     <div className="overflow-x-hidden">
-      <div className="mx-[192px] my-[144px] min-h-[100vh] text-[#4f4749]">
+      <div className="mx-[20px] md:mx-[48px] lg:mx-[192px] my-[144px] min-h-[100vh] text-[#4f4749]">
         <div className="flex items-center justify-center flex-col ]">
           <h1 className="text-center text-[40px] font-[400]">
             {page === "terms-of-use"
