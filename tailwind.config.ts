@@ -49,6 +49,9 @@ export default {
         "light-red": "var(--light-red)",
         silver: "var(--silver)",
         blue: "var(--blue)",
+        soft: "var(--soft)",
+        soft100: "var(--soft100)",
+        medium: "var(--medium)",
 
         "light-silver": "var(--light-silver)",
         background: {
