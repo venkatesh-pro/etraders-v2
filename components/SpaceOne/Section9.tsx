@@ -2,7 +2,7 @@ import React from "react";
 
 const Section9 = () => {
   return (
-    <div className="w-full px-[20px] lg:px-[48px] pt-[20px] md:pt-[96px] pb-[20px] md:pb-[48px] desktop:h-[1055px]">
+    <div className="w-full px-[20px] md:px-[48px] lg:px-[48px] pt-[20px] md:pt-[96px] pb-[20px] md:pb-[48px] desktop:h-[1055px]">
       <div className="flex md:flex-row flex-col">
         <div className="desktop:w-[772px] desktop:h-[632px] ">
           <div className="relative">

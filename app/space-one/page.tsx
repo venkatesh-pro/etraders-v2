@@ -8,7 +8,7 @@ const page = () => {
     <div className="">
       <Navbar />
       <SpaceOne />
-      <Footer />
+      <Footer isPolicyAndTerms={true} />
     </div>
   );
 };

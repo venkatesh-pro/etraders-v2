@@ -17,11 +17,11 @@ const Section7 = () => {
             <span className="text-[14px]">
               Power Space One with solar energy or grid electricity. Use your
               stored energy to charge your electric vehicle, power devices and
-              appliances day and night, even during outages.4
+              appliances day and night, even during outages.
             </span>
             <span>
               <sup className="font-[500]  text-[8px] ml-[1.4px] relative -top-[5px]">
-                2
+              4
               </sup>
             </span>
           </p>
