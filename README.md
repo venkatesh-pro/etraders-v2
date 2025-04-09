@@ -1,1 +1,1 @@
-after 1679 the is issue in video
+1. after 1679 the is issue in video

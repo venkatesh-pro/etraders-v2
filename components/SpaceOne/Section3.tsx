@@ -7,11 +7,6 @@ const Section3 = () => {
         className="h-[700px] relative sm:min-h-[100vh] w-full desktop:min-h-[1024px] bg-cover bg-center flex items-end"
         style={{
           backgroundImage: `
-        linear-gradient(
-          to top,
-          rgba(0, 0, 0, 0) 60%,
-          rgba(0, 0, 0, 0.5) 100%
-        ),
         url('/space-one/section3.jpg')
       `,
         }}

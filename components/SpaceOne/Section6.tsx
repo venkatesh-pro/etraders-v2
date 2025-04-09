@@ -58,9 +58,7 @@ const Section6 = () => {
               the way you interact with your space.
             </span>
             <span>
-              <sup className="font-[500]  text-[12px] ">
-                3
-              </sup>
+              <sup className="font-[500]  text-[12px] ">3</sup>
             </span>
           </p>
         </div>
@@ -69,11 +67,11 @@ const Section6 = () => {
 
         <div className="w-full">
           <h2 className="font-[400] text-[12px] text-soft100 tracking-letterSpacing1px">
-            FEATURES
+            CONTROLS
           </h2>
-          <p className="text-soft mt-[20px]">Spacious deck</p>
-          <p className="text-soft mt-[10px]">Integrated steel base</p>
-          <p className="text-soft mt-[10px]">Sliding door entry</p>
+          <p className="text-soft mt-[20px]">Music streaming</p>
+          <p className="text-soft mt-[10px]">Weather forecasting</p>
+          <p className="text-soft mt-[10px]">Customize lighting</p>
         </div>
       </div>
     </div>
