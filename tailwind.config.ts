@@ -21,6 +21,7 @@ export default {
         custom927: "927px",
         custom1209: "1209px",
         mobile380: "380px",
+        mobile320: "320px",
       },
 
       fontSize: {
