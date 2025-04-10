@@ -35,9 +35,12 @@ const Section1 = () => {
             >
               Order Now
             </Link>
-            <button className="rounded-[100px] ml-[16px] min-w-[114px] max-w-[114px] bg-white text-black text-[14px] min-h-[41px] font-[400] max-h-[41px] text-center hover:opacity-[90%] transition-opacity duration-300 tracking-[.5px]">
+            <Link
+              href={"/spaceone"}
+              className="flex items-center justify-center rounded-[100px] ml-[16px] min-w-[114px] max-w-[114px] bg-white text-black text-[14px] min-h-[41px] font-[400] max-h-[41px] text-center hover:opacity-[90%] transition-opacity duration-300 tracking-[.5px]"
+            >
               Learn More
-            </button>
+            </Link>
           </div>
         </div>
       </div>

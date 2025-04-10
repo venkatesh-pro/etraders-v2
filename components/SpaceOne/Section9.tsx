@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Section9 = () => {
@@ -55,12 +56,16 @@ const Section9 = () => {
                   </span>
                 </p>
               </div>
-              <div className="w-[48px] h-[48px] ml-[10px] flex-shrink-0 rounded-[30px] bg-[#3788f7] flex items-center justify-center cursor-pointer">
+
+              <Link
+                href={"/configure"}
+                className="w-[48px] h-[48px] ml-[10px] flex-shrink-0 rounded-[30px] bg-[#3788f7] flex items-center justify-center cursor-pointer"
+              >
                 <img
                   src="/images/arrow-right.svg"
                   className=" w-[26.17px] h-[19.04px]"
                 ></img>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
