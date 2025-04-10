@@ -27,7 +27,7 @@ const Section9 = () => {
 
                 <Link
                   target="_blank"
-                  href={"/spaceone/Space-One-Dimensioned-Plans.pdf"}
+                  href={"/spaceone/dimensioned-plans.pdf"}
                   className="w-[48px] ml-[10px] h-[48px] flex-shrink-0 rounded-[30px] bg-white flex items-center justify-center cursor-pointer"
                 >
                   <img
