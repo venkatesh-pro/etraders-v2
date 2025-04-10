@@ -63,8 +63,7 @@ const Section6 = () => {
           </p>
         </div>
         {/* <div className="md:w-[3.5px] h-[1.5px]  md:h-auto w-full bg-[#e1e1e1] mx-[0] md:mx-[96px]  my-[48px] md:my-[0px]"></div> */}
-        <div className="md:w-[2.4px] md:min-w-[2.4px] h-[2px] md:h-auto w-full bg-[#e1e1e1] mx-0 md:mx-[96px] my-[48px] md:my-0"></div>
-
+        <div className="md:w-[1px] md:min-w-[1px] h-[1px] md:h-auto w-full bg-[#e1e1e1] mx-0 md:mx-[96px] my-[48px] md:my-0"></div>
         <div className="w-full">
           <h2 className="font-[400] text-[12px] text-soft100 tracking-letterSpacing1px">
             CONTROLS
