@@ -35,6 +35,7 @@ const Section4 = () => {
           controls={false}
           autoPlay
           // loop
+          playsInline
           muted
         ></video>
       </div>
