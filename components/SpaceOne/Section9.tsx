@@ -2,16 +2,16 @@ import React from "react";
 
 const Section9 = () => {
   return (
-    <div className="w-full px-[20px] md:px-[48px] lg:px-[48px] pt-[20px] md:pt-[96px] pb-[20px] md:pb-[48px] desktop:h-[1055px]">
-      <div className="flex md:flex-row flex-col">
-        <div className="desktop:w-[772px] desktop:h-[632px] ">
+    <div className="w-full px-[20px] md:px-[48px] lg:px-[48px] pt-[20px] md:pt-[96px] pb-[20px] md:pb-[48px]">
+      <div className="flex md:flex-row flex-col justify-center items-center">
+        <div className=" ">
           <div className="relative">
             <img
               src="/space-one/section9.0.jpg"
               className="h-full w-full object-cover md:object-contain rounded-[16px] aspect-[1/1] sm:aspect-auto "
               alt="image"
             />
-            <div className="bg-[rgba(0,0,0,0.3)] text-[#e1e1e1] backdrop-blur-2xl h-[138px]  lapL:w-[480px] p-[32px] flex flex-col rounded-[16px] left-[20px] right-[20px] md:right-auto mx-auto justify-center sm:mb-0 absolute bottom-[24px] desktop:bottom-[96px] desktop:left-[192px] ">
+            <div className="bg-[rgba(0,0,0,0.3)] text-[#e1e1e1] backdrop-blur-2xl h-[138px]  lapL:w-[480px] p-[32px] flex flex-col rounded-[16px] left-[20px] right-[20px] md:right-auto mx-auto justify-center sm:mb-0 absolute bottom-[24px]">
               <div className="flex justify-between items-center">
                 <div>
                   <p className="font-[400] text-[12px] tracking-letterSpacing1px ">
@@ -34,13 +34,13 @@ const Section9 = () => {
             </div>
           </div>
         </div>
-        <div className="md:ml-[40px] relative  mt-[20px] md:mt-0 h-[402px] sm:h-full  desktop:w-[772px] desktop:h-[632px]">
+        <div className="md:ml-[40px] relative  mt-[20px] md:mt-0 h-[402px] sm:h-full  ">
           <img
             src="/space-one/section9.1.jpg"
             className="h-full w-full object-cover md:object-contain rounded-[16px] aspect-[1/1] sm:aspect-auto "
             alt="image"
           />
-          <div className="bg-[rgba(0,0,0,0.3)] text-[#e1e1e1] backdrop-blur-2xl h-[138px]  lapL:w-[480px] p-[32px] flex flex-col rounded-[16px] left-[20px] right-[20px] md:right-auto mx-auto justify-center sm:mb-0 absolute bottom-[24px] desktop:bottom-[96px] desktop:left-[192px] ">
+          <div className="bg-[rgba(0,0,0,0.3)] text-[#e1e1e1] backdrop-blur-2xl h-[138px]  lapL:w-[480px] p-[32px] flex flex-col rounded-[16px] left-[20px] right-[20px] md:right-auto mx-auto justify-center sm:mb-0 absolute bottom-[24px]  ">
             <div className="flex justify-between items-center">
               <div>
                 <p className="font-[400] text-[12px] tracking-letterSpacing1px ">

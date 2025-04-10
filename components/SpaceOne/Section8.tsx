@@ -2,7 +2,7 @@ import React from "react";
 
 const Section8 = () => {
   return (
-    <div className="w-full px-[20px] md:px-[48px] lg:px-[100px] lapL:px-[192px] pt-[96px] pb-[96px] md:pb-[48px] desktop:h-[1055px]">
+    <div className="w-full px-[20px] md:px-[48px] lg:px-[100px] lapL:px-[192px] pt-[96px] pb-[96px] md:pb-[48px] ">
       <div className="w-full">
         <h2 className=" text-soft font-[400]">
           <span className="text-[40px]">Space One Tech Specs</span>
