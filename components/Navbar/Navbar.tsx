@@ -13,10 +13,8 @@ const sections = [
 
 const Navbar = ({
   isPolicyAndTerms = false,
-  isSpaceOne = false,
 }: {
   isPolicyAndTerms?: boolean;
-  isSpaceOne?: boolean;
 }) => {
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -137,7 +135,7 @@ const Navbar = ({
           isPolicyAndTerms ? "" : ""
         } ${
           isScrolled
-            ? isPolicyAndTerms || isSpaceOne
+            ? isPolicyAndTerms
               ? "bg-[rgba(255,255,255,0.3)] backdrop-blur-2xl"
               : "bg-[#000000]/30 backdrop-blur-2xl"
             : "bg-none"
