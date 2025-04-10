@@ -15,10 +15,10 @@ const Section9 = () => {
             <div className="bg-[rgba(0,0,0,0.3)] text-[#e1e1e1] backdrop-blur-2xl h-[138px]  lapL:w-[480px] p-[32px] flex flex-col rounded-[16px] left-[20px] right-[20px] md:right-auto mx-auto justify-center sm:mb-0 absolute bottom-[24px]">
               <div className="flex justify-between items-center">
                 <div>
-                  <p className="font-[400] text-[12px] tracking-letterSpacing1px ">
+                  <p className="font-[400] text-[12px] tracking-letterSpacing1px leading-[1.10] ">
                     CATALOG
                   </p>
-                  <p className="font-[400]  mt-[12px]">
+                  <p className="font-[400]  mt-[12px] leading-[1.10]">
                     <span className="text-[20px]">
                       Compare interior layouts
                     </span>
@@ -44,10 +44,10 @@ const Section9 = () => {
           <div className="bg-[rgba(0,0,0,0.3)] text-[#e1e1e1] backdrop-blur-2xl h-[138px]  lapL:w-[480px] p-[32px] flex flex-col rounded-[16px] left-[20px] right-[20px] md:right-auto mx-auto justify-center sm:mb-0 absolute bottom-[24px]  ">
             <div className="flex justify-between items-center">
               <div>
-                <p className="font-[400] text-[12px] tracking-letterSpacing1px ">
+                <p className="font-[400] text-[12px] tracking-letterSpacing1px leading-[1.10]">
                   CONFIGURE
                 </p>
-                <p className="font-[400]  mt-[12px]">
+                <p className="font-[400]  mt-[12px] leading-[1.10]">
                   <span className="text-[20px]">
                     Lease from $395/wk for 12 mo.
                   </span>
