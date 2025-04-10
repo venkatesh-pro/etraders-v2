@@ -25,12 +25,16 @@ const Section9 = () => {
                   </p>
                 </div>
 
-                <div className="w-[48px] ml-[10px] h-[48px] flex-shrink-0 rounded-[30px] bg-white flex items-center justify-center cursor-pointer">
+                <Link
+                  target="_blank"
+                  href={"/space-one/Space-One-Dimensioned-Plans.pdf"}
+                  className="w-[48px] ml-[10px] h-[48px] flex-shrink-0 rounded-[30px] bg-white flex items-center justify-center cursor-pointer"
+                >
                   <img
                     src="/images/arrow-right.svg"
                     className="invert w-[26.17px] h-[19.04px] rotate-90"
                   ></img>
-                </div>
+                </Link>
               </div>
             </div>
           </div>
