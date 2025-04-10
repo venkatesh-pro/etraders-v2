@@ -28,13 +28,13 @@ const Section4 = () => {
       </div>
 
       {/* video */}
-      <div className="mt-[96px] mx-[-20px] md:mx-0">
+      <div className="mt-[96px] mx-[-20px] md:mx-0 ">
         <video
           src="/space-one/section4.2.mp4"
-          className="md:rounded-[16px]"
+          className="md:rounded-[16px] h-[400px] object-cover sm:h-full"
           controls={false}
           autoPlay
-          loop
+          // loop
           muted
         ></video>
       </div>
