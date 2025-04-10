@@ -14,7 +14,7 @@ const Section1 = () => {
               rgba(0, 0, 0, 0) 60%,
               rgba(0, 0, 0, 0.5) 100%
             ),
-            url('/space-one/section1.jpg')
+            url('/spaceone/section1.jpg')
           `,
         }}
       >
@@ -35,7 +35,7 @@ const Section1 = () => {
             >
               Order Now
             </Link>
-            <Link target="_blank" href={'/space-one/Space-One-Dimensioned-Plans.pdf'} className="flex items-center justify-center rounded-[100px] ml-[16px] min-w-[151px] max-w-[151px] bg-white text-black text-[14px] min-h-[41px] font-[400] max-h-[41px] text-center hover:opacity-[90%] transition-opacity duration-300 tracking-[.5px]">
+            <Link target="_blank" href={'/spaceone/Space-One-Dimensioned-Plans.pdf'} className="flex items-center justify-center rounded-[100px] ml-[16px] min-w-[151px] max-w-[151px] bg-white text-black text-[14px] min-h-[41px] font-[400] max-h-[41px] text-center hover:opacity-[90%] transition-opacity duration-300 tracking-[.5px]">
               Compare Models
             </Link>
           </div>

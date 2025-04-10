@@ -13,14 +13,14 @@ const Section4 = () => {
       <div className="flex md:flex-row flex-col mt-[48px]">
         <div className="desktop:w-[716px] desktop:h-[632px]">
           <img
-            src="/space-one/section4.0.jpg"
+            src="/spaceone/section4.0.jpg"
             className="h-full w-full object-cover md:object-contain rounded-[16px] aspect-[1/1] sm:aspect-auto "
             alt="image"
           />
         </div>
         <div className="md:ml-[40px] mt-[20px] md:mt-0 h-[402px] sm:h-full  desktop:w-[540px] desktop:h-[632px]">
           <img
-            src="/space-one/section4.1.jpg"
+            src="/spaceone/section4.1.jpg"
             className="h-full w-full object-cover md:object-contain rounded-[16px] aspect-[1/1] sm:aspect-auto "
             alt="image"
           />
@@ -30,7 +30,7 @@ const Section4 = () => {
       {/* video */}
       <div className="mt-[96px] mx-[-20px] md:mx-0 ">
         <video
-          src="/space-one/section4.2.mp4"
+          src="/spaceone/section4.2.mp4"
           className="md:rounded-[16px] h-[400px] object-cover sm:h-full"
           controls={false}
           autoPlay

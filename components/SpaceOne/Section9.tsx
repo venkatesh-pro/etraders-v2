@@ -8,7 +8,7 @@ const Section9 = () => {
         <div className=" ">
           <div className="relative">
             <img
-              src="/space-one/section9.0.jpg"
+              src="/spaceone/section9.0.jpg"
               className="h-full w-full object-cover md:object-contain rounded-[16px] aspect-[1/1] sm:aspect-auto "
               alt="image"
             />
@@ -27,7 +27,7 @@ const Section9 = () => {
 
                 <Link
                   target="_blank"
-                  href={"/space-one/Space-One-Dimensioned-Plans.pdf"}
+                  href={"/spaceone/Space-One-Dimensioned-Plans.pdf"}
                   className="w-[48px] ml-[10px] h-[48px] flex-shrink-0 rounded-[30px] bg-white flex items-center justify-center cursor-pointer"
                 >
                   <img
@@ -41,7 +41,7 @@ const Section9 = () => {
         </div>
         <div className="md:ml-[40px] relative  mt-[20px] md:mt-0 h-[402px] sm:h-full  ">
           <img
-            src="/space-one/section9.1.jpg"
+            src="/spaceone/section9.1.jpg"
             className="h-full w-full object-cover md:object-contain rounded-[16px] aspect-[1/1] sm:aspect-auto "
             alt="image"
           />

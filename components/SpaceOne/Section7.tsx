@@ -7,7 +7,7 @@ const Section7 = () => {
         className="h-[700px] relative sm:min-h-[100vh] w-full desktop:min-h-[1024px] bg-cover bg-center flex items-end"
         style={{
           backgroundImage: `
-        url('/space-one/section7.jpg')
+        url('/spaceone/section7.jpg')
       `,
         }}
       >

@@ -7,7 +7,7 @@ const Section2 = () => {
       <div className="w-full">
         <div className="">
           <img
-            src="/space-one/section2.jpg"
+            src="/spaceone/section2.jpg"
             className="h-full w-full object-cover md:object-contain rounded-[16px] aspect-[1/1] sm:aspect-auto "
             alt="image"
           />
