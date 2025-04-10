@@ -6,7 +6,7 @@ import React from "react";
 const page = () => {
   return (
     <div className="">
-      <Navbar />
+      <Navbar isSpaceOne={true}/>
       <SpaceOne />
       <Footer isPolicyAndTerms={true} />
     </div>

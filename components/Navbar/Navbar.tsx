@@ -13,8 +13,10 @@ const sections = [
 
 const Navbar = ({
   isPolicyAndTerms = false,
+  isSpaceOne = false,
 }: {
   isPolicyAndTerms?: boolean;
+  isSpaceOne?: boolean;
 }) => {
   const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -132,9 +134,13 @@ const Navbar = ({
       <div
         id="homepage-navbar"
         className={`w-full  z-10 pl-[20px] md:px-[30px] desktop:px-[48px] h-[56px] transition-all duration-300 ${
-          isPolicyAndTerms ? "bg-[rgba(255,255,255,0.3)]" : ""
+          isPolicyAndTerms ? "" : ""
         } ${
-          isScrolled ? "bg-[#000000]/30 backdrop-blur-2xl" : "bg-none"
+          isScrolled
+            ? isPolicyAndTerms || isSpaceOne
+              ? "bg-[rgba(255,255,255,0.3)] backdrop-blur-2xl"
+              : "bg-[#000000]/30 backdrop-blur-2xl"
+            : "bg-none"
         }  flex md:justify-center justify-between items-center fixed `}
       >
         <Link href="/" id="logo" className="">
