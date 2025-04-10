@@ -2,7 +2,7 @@ import React from "react";
 
 const Section6 = () => {
   return (
-    <div className="w-full px-[20px] md:px-[48px] lg:px-[192px] pt-[96px] pb-[96px] md:pb-[144px] desktop:h-[1055px]">
+    <div className="w-full px-[20px] md:px-[48px] lg:px-[100px] lapL:px-[192px] pt-[96px] pb-[96px] md:pb-[144px] desktop:h-[1055px]">
       <div className="">
         <h2 className="text-soft text-[40px] font-[400]">Functional layouts</h2>
         <p className="text-medium text-[18px] mt-[24px] font-[400]">

@@ -1,2 +1,3 @@
 1. after 1679 the is issue in video
-2.  lg:px-[100px] lapL:px-[192px]  // don't need all working fine, i think
+2. lg:px-[100px] lapL:px-[192px] => do it for the0
+3. add link to download pdf or configurator
