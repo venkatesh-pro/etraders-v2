@@ -4,7 +4,7 @@ const Section8 = () => {
   return (
     <div className="w-full px-[20px] md:px-[48px] lg:px-[100px] lapL:px-[192px] pt-[96px] pb-[96px] md:pb-[48px] ">
       <div className="w-full">
-        <h2 className=" text-soft font-[400]">
+        <h2 className=" text-soft font-[400] leading-[1.10]">
           <span className="text-[40px]">Space One Tech Specs</span>
           <span className="text-[28px] font-[500] relative -top-[4px]">
             <sup>5</sup>

@@ -14,7 +14,7 @@ const Section2 = () => {
         </div>
         <div className="flex  flex-col md:flex-row w-full mt-[48px] h-full">
           <div className="w-full">
-            <h2 className="font-[400] text-[40px] text-soft">
+            <h2 className="font-[400] text-[40px] text-soft leading-[1.10]">
               Building of the future
             </h2>
             <p className="font-[400] text-[18px] mt-[24px] text-medium">

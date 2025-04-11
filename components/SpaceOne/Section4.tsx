@@ -4,7 +4,7 @@ const Section4 = () => {
   return (
     <div className="w-full px-[20px] md:px-[48px] lg:px-[100px] lapL:px-[192px] pt-[96px] pb-[96px] md:pb-[144px] ">
       <div className="">
-        <h2 className="text-soft text-[40px] font-[400]">Take a closer look</h2>
+        <h2 className="text-soft text-[40px] font-[400] leading-[1.10]">Take a closer look</h2>
         <p className="text-medium text-[18px] mt-[24px] font-[400]">
           Available in two sizes and five stunning exterior finishes.
         </p>
@@ -42,7 +42,7 @@ const Section4 = () => {
 
       <div className="flex  flex-col md:flex-row w-full mt-[48px]">
         <div className="w-full">
-          <h2 className="font-[400] text-[40px] text-soft">Grand entrance</h2>
+          <h2 className="font-[400] text-[40px] text-soft leading-[1.10]">Grand entrance</h2>
           <p className="font-[400] text-[18px] mt-[24px] text-medium">
             Futuristic wraparound facade with a spacious deck and durable
             eco-timber composite panelling seamlessly blends with nature.

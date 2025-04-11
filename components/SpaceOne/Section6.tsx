@@ -4,7 +4,7 @@ const Section6 = () => {
   return (
     <div className="w-full px-[20px] md:px-[48px] lg:px-[100px] lapL:px-[192px] pt-[96px] pb-[96px] md:pb-[144px]">
       <div className="">
-        <h2 className="text-soft text-[40px] font-[400]">Functional layouts</h2>
+        <h2 className="text-soft text-[40px] font-[400] leading-[1.10]">Functional layouts</h2>
         <p className="text-medium text-[18px] mt-[24px] font-[400]">
           Raised ceiling height and extra width allows for greater flexibility.
         </p>
@@ -47,11 +47,11 @@ const Section6 = () => {
 
       <div className="flex  flex-col md:flex-row w-full mt-[48px] h-full">
         <div className="w-full">
-          <h2 className="font-[400] text-[40px] text-soft">
+          <h2 className="font-[400] text-[40px] text-soft leading-[1.10]">
             Immersive technology
           </h2>
 
-          <p className="font-[400] mt-[24px] text-medium">
+          <p className="font-[400] mt-[24px] text-medium ">
             <span className="text-[18px]">
               Refined materials and interior hardware integrate seamlessly with
               a 10-inch control panel to create an environment that reimagines
