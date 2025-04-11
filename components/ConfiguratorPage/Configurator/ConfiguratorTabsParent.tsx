@@ -112,7 +112,7 @@ const ConfiguratorTabsParent: React.FC<ConfiguratorTabsParentProps> = ({
   return (
     <div>
       <span className="text-dark-red text-[17px]">New</span>
-      <h1 className="text-mobile-header-lg font-[450] leading-[50px] mt-[10px]">
+      <h1 className="text-mobile-header-lg font-[450] leading-[1.10] mt-[10px]">
         Customize your Space One
       </h1>
       <p className="text-desktop-body-xl font-[450] mt-[30px]">
